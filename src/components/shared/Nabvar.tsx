@@ -1,6 +1,5 @@
 "use client"
-import React, { useState, useEffect } from 'react';
-import { Menu, X, ChevronDown } from 'lucide-react';
+import React, { useState, useEffect } from 'react';import Link from 'next/link';import { Menu, X, ChevronDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
   Sheet,
@@ -21,11 +20,11 @@ const Nabvar = () => {
   }, []);
 
   const navItems = [
-    { name: 'Home', href: '#home' },
-    { name: 'Services', href: '#services' },
-    { name: 'Portfolio', href: '#portfolio' },
-    { name: 'About', href: '#about' },
-    { name: 'Contact', href: '#contact' },
+    { name: 'Home', href: '/' },
+    { name: 'Services', href: '/services' },
+    { name: 'Portfolio', href: '/portfolio' },
+    { name: 'About', href: '/about' },
+    { name: 'Contact', href: '/contact' },
   ];
 
   return (
@@ -57,14 +56,14 @@ const Nabvar = () => {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-1">
             {navItems.map((item) => (
-              <a
+              <Link
                 key={item.name}
                 href={item.href}
                 className="relative px-4 py-2 text-gray-700 font-medium text-sm lg:text-base rounded-lg transition-all duration-300 hover:text-blue-600 group"
               >
                 {item.name}
                 <span className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-gradient-to-r from-blue-600 to-cyan-600 transform -translate-x-1/2 transition-all duration-300 group-hover:w-3/4"></span>
-              </a>
+              </Link>
             ))}
           </div>
 
@@ -107,7 +106,7 @@ const Nabvar = () => {
                   </div>
                   
                   {navItems.map((item) => (
-                    <a
+                    <Link
                       key={item.name}
                       href={item.href}
                       onClick={() => setIsOpen(false)}
@@ -115,7 +114,7 @@ const Nabvar = () => {
                     >
                       {item.name}
                       <ChevronDown className="h-4 w-4 transform -rotate-90 group-hover:translate-x-1 transition-transform" />
-                    </a>
+                    </Link>
                   ))}
                   
                   <Button
