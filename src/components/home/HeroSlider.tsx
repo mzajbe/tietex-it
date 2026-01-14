@@ -52,7 +52,7 @@ export default function HeroSlider() {
               
               <h1 className="text-5xl lg:text-6xl font-bold text-slate-900 leading-tight">
                 Transform Your Ideas Into
-                <span className="text-blue-600"> Digital Reality</span>
+                <span className="text-primary"> Digital Reality</span>
               </h1>
               
               <p className="text-lg text-slate-600 leading-relaxed">
@@ -63,7 +63,7 @@ export default function HeroSlider() {
             <div className="flex flex-col sm:flex-row gap-4">
               <Button 
                 size="lg"
-                className="bg-blue-600 hover:bg-blue-700 text-white px-8"
+                className="bg-primary  text-white px-8"
               >
                 Get Started
                 <ArrowRight className="ml-2 w-5 h-5" />

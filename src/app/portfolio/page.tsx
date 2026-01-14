@@ -1,40 +1,124 @@
-import Link from 'next/link';
-import { Button } from '@/components/ui/button';
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import Card3dDemo from "@/components/portfolio/Card3dDemo";
+import HeroImageSection from "@/components/portfolio/HeroImageSection";
+
+import heroImage from "@/./../public/nasa-Q1p7bh3SHj8-unsplash.jpg"
 
 export const metadata = {
-  title: 'Portfolio - Tietex IT',
+  title: "Portfolio - Tietex IT",
 };
 
 export default function PortfolioPage() {
-  const projects = new Array(8).fill(0).map((_, i) => ({
-    title: `Project ${i + 1}`,
-    desc: 'A short summary highlighting the challenge and the outcome.',
-  }));
+  const projects = [
+    {
+      title: "E-Commerce Platform",
+      desc: "Built a scalable e-commerce site with admin dashboard & payment integration.",
+      image:
+        "https://i.pinimg.com/1200x/1b/ef/90/1bef907a0a1af5edfffd7e027c487082.jpg",
+      liveUrl: "https://example.com",
+    },
+    {
+      title: "Company Website",
+      desc: "Modern marketing website with SEO optimization and blazing performance.",
+      image:
+        "https://i.pinimg.com/1200x/09/82/d0/0982d04c7dec73b27e144de342abdb17.jpg",
+      liveUrl: "https://example.com",
+    },
+    {
+      title: "Company Website",
+      desc: "Modern marketing website with SEO optimization and blazing performance.",
+      image:
+        "https://i.pinimg.com/736x/9a/36/7c/9a367cc4207ce4aa1e49a5474a85719f.jpg",
+      liveUrl: "https://example.com",
+    },
+    {
+      title: "Company Website",
+      desc: "Modern marketing website with SEO optimization and blazing performance.",
+      image:
+        "https://i.pinimg.com/736x/29/d2/a4/29d2a40b5df235c396c69448ff0799e4.jpg",
+      liveUrl: "https://example.com",
+    },
+    {
+      title: "Company Website",
+      desc: "Modern marketing website with SEO optimization and blazing performance.",
+      image:
+        "https://i.pinimg.com/736x/43/ab/ed/43abedf3871bd9023313a82b61fc06b7.jpg",
+      liveUrl: "https://example.com",
+    },
+    {
+      title: "Company Website",
+      desc: "Modern marketing website with SEO optimization and blazing performance.",
+      image:
+        "https://i.pinimg.com/1200x/47/1f/e3/471fe38c28442075b27435a54857aa34.jpg",
+      liveUrl: "https://example.com",
+    },
+    {
+      title: "Company Website",
+      desc: "Modern marketing website with SEO optimization and blazing performance.",
+      image:
+        "https://i.pinimg.com/736x/a7/45/67/a745677bd7c3042fba83fdc96a401437.jpg",
+      liveUrl: "https://example.com",
+    },
+    {
+      title: "Company Website",
+      desc: "Modern marketing website with SEO optimization and blazing performance.",
+      image:
+        "https://i.pinimg.com/736x/f4/87/85/f48785297dd83fa1bae45bb0ad8dd0e4.jpg",
+      liveUrl: "https://example.com",
+    },
+    // add more...
+  ];
+
+
 
   return (
     <main>
-      <section className="py-24 text-center bg-gradient-to-b from-white to-slate-50">
+      {/* HERO */}
+
+      <div className="mt-22">
+        <HeroImageSection
+        src= {heroImage}
+        alt="Tietex IT portfolio banner"
+        heightClassName="h-[50vh]" // 20% screen height
+        // objectPositionClassName="object-top" // good for wide landscape shots
+      />
+      </div>
+      
+
+      
+
+<section className="py-24 text-center bg-gradient-to-b from-white to-slate-50">
         <div className="container mx-auto px-4">
           <h1 className="text-4xl md:text-5xl font-extrabold">Our Portfolio</h1>
-          <p className="mt-4 max-w-2xl mx-auto text-lg text-muted-foreground">Some of our recent work that demonstrates the impact we deliver.</p>
+          <p className="mt-4 max-w-2xl mx-auto text-lg text-muted-foreground">
+            Some of our completed projects that demonstrate the impact we
+            deliver.
+          </p>
+
           <div className="mt-6">
             <Link href="/contact">
-              <Button className="bg-gradient-to-r from-blue-600 to-cyan-600 text-white">Discuss a Project</Button>
+              <Button className="bg-gradient-to-r from-blue-600 to-cyan-600 text-white">
+                Discuss a Project
+              </Button>
             </Link>
           </div>
         </div>
       </section>
 
+
+      {/* PORTFOLIO GRID */}
       <section className="py-16 container mx-auto px-4">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {projects.map((p, i) => (
-            <div key={i} className="rounded-2xl overflow-hidden border bg-background hover:shadow-lg transition">
-              <div className="h-44 bg-slate-100 flex items-center justify-center text-muted-foreground">Preview</div>
-              <div className="p-6">
-                <h3 className="text-lg font-semibold">{p.title}</h3>
-                <p className="mt-2 text-sm text-muted-foreground">{p.desc}</p>
-              </div>
-            </div>
+            <Card3dDemo
+              key={i}
+              title={p.title}
+              desc={p.desc}
+              image={p.image}
+              liveUrl={p.liveUrl}
+              imageHeightClass="h-72" // bigger preview (you can use h-80 too)
+            />
           ))}
         </div>
       </section>
