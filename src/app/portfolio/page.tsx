@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import Card3dDemo from "@/components/portfolio/Card3dDemo";
 import HeroImageSection from "@/components/portfolio/HeroImageSection";
+import PortfolioContent from "@/components/portfolio/PortfolioContent";
 
 import heroImage from "@/./../public/nasa-Q1p7bh3SHj8-unsplash.jpg"
 
@@ -17,6 +17,7 @@ export default function PortfolioPage() {
       image:
         "https://i.pinimg.com/1200x/1b/ef/90/1bef907a0a1af5edfffd7e027c487082.jpg",
       liveUrl: "https://example.com",
+      category: "E-Commerce",
     },
     {
       title: "Company Website",
@@ -24,6 +25,7 @@ export default function PortfolioPage() {
       image:
         "https://i.pinimg.com/1200x/09/82/d0/0982d04c7dec73b27e144de342abdb17.jpg",
       liveUrl: "https://example.com",
+      category: "Real Estate",
     },
     {
       title: "Company Website",
@@ -31,6 +33,7 @@ export default function PortfolioPage() {
       image:
         "https://i.pinimg.com/736x/9a/36/7c/9a367cc4207ce4aa1e49a5474a85719f.jpg",
       liveUrl: "https://example.com",
+      category: "Beauty",
     },
     {
       title: "Company Website",
@@ -38,6 +41,7 @@ export default function PortfolioPage() {
       image:
         "https://i.pinimg.com/736x/29/d2/a4/29d2a40b5df235c396c69448ff0799e4.jpg",
       liveUrl: "https://example.com",
+      category: "Real Estate",
     },
     {
       title: "Company Website",
@@ -45,6 +49,7 @@ export default function PortfolioPage() {
       image:
         "https://i.pinimg.com/736x/43/ab/ed/43abedf3871bd9023313a82b61fc06b7.jpg",
       liveUrl: "https://example.com",
+      category: "Beauty",
     },
     {
       title: "Company Website",
@@ -52,6 +57,7 @@ export default function PortfolioPage() {
       image:
         "https://i.pinimg.com/1200x/47/1f/e3/471fe38c28442075b27435a54857aa34.jpg",
       liveUrl: "https://example.com",
+      category: "Real Estate",
     },
     {
       title: "Company Website",
@@ -59,6 +65,7 @@ export default function PortfolioPage() {
       image:
         "https://i.pinimg.com/736x/a7/45/67/a745677bd7c3042fba83fdc96a401437.jpg",
       liveUrl: "https://example.com",
+      category: "E-Commerce",
     },
     {
       title: "Company Website",
@@ -66,11 +73,10 @@ export default function PortfolioPage() {
       image:
         "https://i.pinimg.com/736x/f4/87/85/f48785297dd83fa1bae45bb0ad8dd0e4.jpg",
       liveUrl: "https://example.com",
+      category: "Beauty",
     },
     // add more...
   ];
-
-
 
   return (
     <main>
@@ -95,7 +101,7 @@ export default function PortfolioPage() {
             </p>
             <div className="mt-6">
               <Link href="/contact">
-                <Button className="bg-gradient-to-r from-blue-600 to-cyan-600 text-white">
+                <Button className="bg-primary text-white">
                   Discuss a Project
                 </Button>
               </Link>
@@ -108,20 +114,7 @@ export default function PortfolioPage() {
       
 
       {/* PORTFOLIO GRID */}
-      <section className="py-16 container mx-auto px-4">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {projects.map((p, i) => (
-            <Card3dDemo
-              key={i}
-              title={p.title}
-              desc={p.desc}
-              image={p.image}
-              liveUrl={p.liveUrl}
-              imageHeightClass="h-72" // bigger preview (you can use h-80 too)
-            />
-          ))}
-        </div>
-      </section>
+      <PortfolioContent projects={projects} />
     </main>
   );
 }
