@@ -79,14 +79,14 @@ export default function PortfolioPage() {
   ];
 
   return (
-    <main>
+    <main className=" -mt-24">
       {/* HERO */}
 
       <div className="relative">
         <HeroImageSection
           src={heroImage}
           alt="Tietex IT portfolio banner"
-          heightClassName="h-[50vh]" // 20% screen height
+          heightClassName="h-[51vh]" // 20% screen height
           // objectPositionClassName="object-top" // good for wide landscape shots
         />
         <div className="absolute inset-0 bg-black/40" aria-hidden="true" />
