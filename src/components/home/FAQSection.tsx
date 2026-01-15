@@ -2,12 +2,24 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Plus, Minus, MessageCircle, HelpCircle, Sparkles } from 'lucide-react';
 
-const FAQSection = () => {
-  const [openItems, setOpenItems] = useState([0]);
-  const [isVisible, setIsVisible] = useState(false);
-  const sectionRef = useRef(null);
+type FAQItemType = {
+  question: string;
+  answer: string;
+  category: string;
+};
 
-  const faqs = [
+type FAQItemProps = {
+  faq: FAQItemType;
+  index: number;
+  originalIndex: number;
+};
+
+const FAQSection = () => {
+  const [openItems, setOpenItems] = useState<number[]>([0]);
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef<HTMLElement | null>(null);
+
+  const faqs: FAQItemType[] = [
     {
       question: "What services does Tietex IT provide?",
       answer: "We offer a comprehensive range of IT services including web development, mobile app development, UI/UX design, cloud solutions, digital marketing, and IT consulting. Our team specializes in creating custom solutions tailored to your business needs.",
@@ -71,7 +83,7 @@ const FAQSection = () => {
     };
   }, []);
 
-  const toggleItem = (index) => {
+  const toggleItem = (index: number) => {
     setOpenItems(prev => 
       prev.includes(index) 
         ? prev.filter(i => i !== index)
@@ -82,9 +94,9 @@ const FAQSection = () => {
   const leftColumnFaqs = faqs.filter((_, index) => index % 2 === 0);
   const rightColumnFaqs = faqs.filter((_, index) => index % 2 === 1);
 
-  const FAQItem = ({ faq, index, originalIndex }) => {
+  const FAQItem = ({ faq, index, originalIndex }: FAQItemProps) => {
     const isOpen = openItems.includes(originalIndex);
-    const contentRef = useRef(null);
+    const contentRef = useRef<HTMLDivElement | null>(null);
 
     return (
       <div

@@ -82,7 +82,7 @@ export default function PortfolioPage() {
     <main>
       {/* HERO */}
 
-      <div className="relative mt-22">
+      <div className="relative">
         <HeroImageSection
           src={heroImage}
           alt="Tietex IT portfolio banner"

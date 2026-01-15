@@ -1,9 +1,9 @@
-import Image from "next/image";
+import Image, { type StaticImageData } from "next/image";
 import { cn } from "@/lib/utils";
 
 type HeroImageSectionProps = {
   /** Local: "/images/hero.jpg" (place in /public) or remote url (needs next config) */
-  src: string;
+  src: string | StaticImageData;
   alt: string;
   /** Default: 20vh (≈ 20% of screen height) */
   heightClassName?: string;

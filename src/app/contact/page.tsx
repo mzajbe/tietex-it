@@ -1,13 +1,23 @@
 "use client"
-import { useState } from 'react';
+import { useState, type ChangeEvent, type FormEvent } from 'react';
 import { Mail, Phone, MapPin, Send, CheckCircle2, Loader2 } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import OfficeMap from '@/components/about/OfficeMap';
 import { MyMap } from '@/components/about/MyMap';
 
+type ContactFormData = {
+  name: string;
+  email: string;
+  company: string;
+  phone: string;
+  service: string;
+  budget: string;
+  message: string;
+};
+
 export default function ContactPage() {
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<ContactFormData>({
     name: '',
     email: '',
     company: '',
@@ -19,11 +29,13 @@ export default function ContactPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const handleChange = (e) => {
+  const handleChange = (
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+  ) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
     
@@ -54,7 +66,7 @@ export default function ContactPage() {
     <div className="min-h-screen bg-gray-50">
         {/* <OfficeMap></OfficeMap> */}
         <MyMap></MyMap>
-      <div className="container mx-auto pt-24 px-4 py-16 max-w-7xl">
+      <div className="container mx-auto px-4 py-16 max-w-7xl">
         {/* Header Section */}
         {/* <div className="text-center mb-16">
           <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
