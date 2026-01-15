@@ -26,7 +26,7 @@ const Card3dDemo = ({
   desc,
   image,
   liveUrl,
-  imageHeightClass = "h-80",     // bigger image height
+  imageHeightClass = "h-96",     // bigger image height
   imagePositionClass = "object-top", // best for full-page screenshots
 }: Card3dDemoProps) => {
   const cardRef = useRef<HTMLDivElement>(null);
