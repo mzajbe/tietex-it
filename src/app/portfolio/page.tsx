@@ -76,36 +76,36 @@ export default function PortfolioPage() {
     <main>
       {/* HERO */}
 
-      <div className="mt-22">
+      <div className="relative mt-22">
         <HeroImageSection
-        src= {heroImage}
-        alt="Tietex IT portfolio banner"
-        heightClassName="h-[50vh]" // 20% screen height
-        // objectPositionClassName="object-top" // good for wide landscape shots
-      />
+          src={heroImage}
+          alt="Tietex IT portfolio banner"
+          heightClassName="h-[50vh]" // 20% screen height
+          // objectPositionClassName="object-top" // good for wide landscape shots
+        />
+        <div className="absolute inset-0 bg-black/40" aria-hidden="true" />
+        <div className="absolute inset-0 flex items-center justify-center text-center">
+          <div className="px-4 text-white">
+            <h1 className="text-4xl md:text-5xl font-extrabold">
+              Our Portfolio
+            </h1>
+            <p className="mt-4 max-w-2xl mx-auto text-lg text-white/90">
+              Some of our completed projects that demonstrate the impact we
+              deliver.
+            </p>
+            <div className="mt-6">
+              <Link href="/contact">
+                <Button className="bg-gradient-to-r from-blue-600 to-cyan-600 text-white">
+                  Discuss a Project
+                </Button>
+              </Link>
+            </div>
+          </div>
+        </div>
       </div>
       
 
       
-
-<section className="py-24 text-center bg-gradient-to-b from-white to-slate-50">
-        <div className="container mx-auto px-4">
-          <h1 className="text-4xl md:text-5xl font-extrabold">Our Portfolio</h1>
-          <p className="mt-4 max-w-2xl mx-auto text-lg text-muted-foreground">
-            Some of our completed projects that demonstrate the impact we
-            deliver.
-          </p>
-
-          <div className="mt-6">
-            <Link href="/contact">
-              <Button className="bg-gradient-to-r from-blue-600 to-cyan-600 text-white">
-                Discuss a Project
-              </Button>
-            </Link>
-          </div>
-        </div>
-      </section>
-
 
       {/* PORTFOLIO GRID */}
       <section className="py-16 container mx-auto px-4">

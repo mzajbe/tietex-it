@@ -139,12 +139,14 @@ const Card3dDemo = ({
 
       <CardContent className="space-y-4 text-sm">
         {/* Bigger screenshot preview */}
-        <div className={`relative w-full ${imageHeightClass} overflow-hidden rounded-md bg-slate-100`}>
+        <div
+          className={`group relative w-full ${imageHeightClass} overflow-hidden rounded-md bg-slate-100`}
+        >
           <img
             ref={imageRef}
             src={image}
             alt={title}
-            className={`h-full w-full rounded-md object-cover ${imagePositionClass}`}
+            className={`card-image-scroll h-full w-full rounded-md object-cover ${imagePositionClass}`}
             loading="lazy"
           />
         </div>
@@ -158,6 +160,24 @@ const Card3dDemo = ({
           </Link>
         </Button>
       </CardContent>
+      <style jsx>{`
+        .card-image-scroll {
+          object-position: 50% 0%;
+        }
+
+        .group:hover .card-image-scroll {
+          animation: imageScroll 8s linear forwards;
+        }
+
+        @keyframes imageScroll {
+          from {
+            object-position: 50% 0%;
+          }
+          to {
+            object-position: 50% 100%;
+          }
+        }
+      `}</style>
     </Card>
   );
 };
