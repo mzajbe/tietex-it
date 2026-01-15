@@ -3,7 +3,6 @@ import { useState, type ChangeEvent, type FormEvent } from 'react';
 import { Mail, Phone, MapPin, Send, CheckCircle2, Loader2 } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import OfficeMap from '@/components/about/OfficeMap';
 import { MyMap } from '@/components/about/MyMap';
 
 type ContactFormData = {
@@ -63,201 +62,162 @@ export default function ContactPage() {
 
 
   return (
-    <div className="min-h-screen bg-gray-50">
-        {/* <OfficeMap></OfficeMap> */}
-        <MyMap></MyMap>
-      <div className="container mx-auto px-4 py-16 max-w-7xl">
-        {/* Header Section */}
-        {/* <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
-            Let&apos;s Build Something Amazing
-          </h1>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Ready to transform your digital presence? Get in touch and let&apos;s create something extraordinary together.
-          </p>
-        </div> */}
-
-
-        
-
-        <div className="grid lg:grid-cols-3 gap-8">
-          {/* Contact Info Cards */}
-          <div className="lg:col-span-1 space-y-6">
-            <Card className="hover:shadow-lg transition-shadow duration-300">
-              <CardContent className="p-6">
-                <div className="flex items-start space-x-4">
-                  <div className="p-3 bg-gray-100 rounded-lg">
-                    <Mail className="w-6 h-6 text-gray-700" />
+    <main className="bg-slate-50 -mt-24">
+      <section className="relative overflow-hidden bg-slate-950 text-white">
+        <div className="absolute inset-0 opacity-40 [background:radial-gradient(circle_at_15%_20%,#38bdf8_0%,transparent_45%),radial-gradient(circle_at_85%_15%,#22c55e_0%,transparent_35%)]" />
+        <div className="container mx-auto px-4 py-24">
+          <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-12 items-center">
+            <div className="space-y-6">
+              <p className="text-xs uppercase tracking-widest text-white/60">
+                Contact
+              </p>
+              <h1 className="text-4xl md:text-6xl font-extrabold leading-tight">
+                Let&apos;s build something bold together.
+              </h1>
+              <p className="text-lg text-white/75 max-w-xl">
+                Tell us about your goals and we&apos;ll map a plan that fits your
+                timeline, budget, and vision.
+              </p>
+              <div className="flex flex-wrap gap-3 pt-2 text-sm text-white/70">
+                {["24h response", "Clear scope", "Transparent pricing"].map((item) => (
+                  <div
+                    key={item}
+                    className="rounded-full border border-white/20 bg-white/5 px-4 py-2"
+                  >
+                    {item}
                   </div>
-                  <div>
-                    <h3 className="font-semibold mb-2">Email Us</h3>
-                    <p className="text-gray-600 text-sm">tietexit@gmail.com</p>
-                    {/* <p className="text-gray-600 text-sm">support@youragency.com</p> */}
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card className="hover:shadow-lg transition-shadow duration-300">
-              <CardContent className="p-6">
-                <div className="flex items-start space-x-4">
-                  <div className="p-3 bg-gray-100 rounded-lg">
-                    <Phone className="w-6 h-6 text-gray-700" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold mb-2">Call Us (24/7)</h3>
-                    <p className="text-gray-600 text-sm">01636024975</p>
-                    {/* <p className="text-gray-600 text-sm">24/7</p> */}
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-
-            {/* <Card className="hover:shadow-lg transition-shadow duration-300">
-              <CardContent className="p-6">
-                <div className="flex items-start space-x-4">
-                  <div className="p-3 bg-gray-100 rounded-lg">
-                    <MapPin className="w-6 h-6 text-gray-700" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold mb-2">Visit Us</h3>
-                    <p className="text-gray-600 text-sm">123 Innovation Street</p>
-                    <p className="text-gray-600 text-sm">San Francisco, CA 94102</p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card> */}
-
-            <div className="p-6 bg-white border rounded-lg shadow-sm">
-              <h3 className="font-semibold mb-3">Why Choose Us?</h3>
-              <ul className="space-y-2 text-gray-600 text-sm">
-                <li className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-green-600" />
-                  1+ Years Experience
-                </li>
-                <li className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-green-600" />
-                  50+ Projects Delivered
-                </li>
-                <li className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-green-600" />
-                  100% Client Satisfaction
-                </li>
-              </ul>
+                ))}
+              </div>
             </div>
+            <div className="grid gap-4 sm:grid-cols-2">
+              {[
+                { label: "Email us", value: "tietexit@gmail.com", icon: Mail },
+                { label: "Call us", value: "01636024975", icon: Phone },
+                { label: "Office", value: "Dhaka, Bangladesh", icon: MapPin },
+                { label: "Availability", value: "Mon-Sat, 9am-7pm", icon: CheckCircle2 },
+              ].map((item) => {
+                const Icon = item.icon;
+                return (
+                  <div
+                    key={item.label}
+                    className="rounded-2xl border border-white/15 bg-white/5 p-5"
+                  >
+                    <Icon className="h-5 w-5 text-cyan-200" />
+                    <p className="mt-3 text-xs uppercase tracking-widest text-white/60">
+                      {item.label}
+                    </p>
+                    <p className="mt-2 text-sm font-semibold">{item.value}</p>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16 container mx-auto px-4">
+        <div className="grid lg:grid-cols-3 gap-8">
+          {/* Contact Info */}
+          <div className="lg:col-span-1 space-y-6">
+            <Card className="border bg-white shadow-sm">
+              <CardContent className="p-6">
+                <h3 className="text-lg font-semibold text-slate-900">Start with a quick brief</h3>
+                <p className="mt-2 text-sm text-slate-600">
+                  Share your goals, timeline, and budget. We&apos;ll respond with
+                  a clear next step.
+                </p>
+                <div className="mt-6 grid gap-3 text-sm text-slate-600">
+                  {[
+                    "Discovery call within 24 hours",
+                    "Clear scope and delivery plan",
+                    "Senior team on every project",
+                  ].map((item) => (
+                    <div key={item} className="flex items-center gap-2">
+                      <CheckCircle2 className="h-4 w-4 text-emerald-500" />
+                      {item}
+                    </div>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="border bg-white shadow-sm">
+              <CardContent className="p-6">
+                <h3 className="text-lg font-semibold text-slate-900">Quick contacts</h3>
+                <div className="mt-4 space-y-4 text-sm">
+                  <div className="flex items-center gap-3">
+                    <div className="rounded-xl bg-slate-100 p-2">
+                      <Mail className="h-4 w-4 text-slate-700" />
+                    </div>
+                    <div>
+                      <p className="text-slate-500">Email</p>
+                      <p className="font-semibold text-slate-900">tietexit@gmail.com</p>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <div className="rounded-xl bg-slate-100 p-2">
+                      <Phone className="h-4 w-4 text-slate-700" />
+                    </div>
+                    <div>
+                      <p className="text-slate-500">Phone</p>
+                      <p className="font-semibold text-slate-900">01636024975</p>
+                    </div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
           </div>
 
           {/* Contact Form */}
           <div className="lg:col-span-2">
-            <Card>
+            <Card className="border bg-white shadow-lg">
               <CardContent className="p-8">
                 {isSubmitted ? (
                   <div className="text-center py-16">
-                    <div className="inline-flex items-center justify-center w-20 h-20 bg-green-100 rounded-full mb-6">
-                      <CheckCircle2 className="w-10 h-10 text-green-600" />
+                    <div className="inline-flex items-center justify-center w-20 h-20 bg-emerald-100 rounded-full mb-6">
+                      <CheckCircle2 className="w-10 h-10 text-emerald-600" />
                     </div>
-                    <h3 className="text-2xl font-bold text-gray-900 mb-2">Message Sent!</h3>
-                    <p className="text-gray-600">We&apos;ll get back to you within 24 hours.</p>
+                    <h3 className="text-2xl font-bold text-slate-900 mb-2">Message Sent!</h3>
+                    <p className="text-slate-600">We&apos;ll get back to you within 24 hours.</p>
                   </div>
                 ) : (
                   <form onSubmit={handleSubmit} className="space-y-6">
                     <div className="grid md:grid-cols-2 gap-6">
                       <div>
-                        <label className="block text-gray-700 font-medium mb-2">Full Name *</label>
+                        <label className="block text-slate-700 font-medium mb-2">Full Name *</label>
                         <input
                           type="text"
                           name="name"
                           value={formData.name}
                           onChange={handleChange}
                           required
-                          className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                          className="w-full px-4 py-3 bg-white border border-slate-200 rounded-lg text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all"
                           placeholder="Ridan"
                         />
                       </div>
                       <div>
-                        <label className="block text-gray-700 font-medium mb-2">Email Address *</label>
+                        <label className="block text-slate-700 font-medium mb-2">Email Address *</label>
                         <input
                           type="email"
                           name="email"
                           value={formData.email}
                           onChange={handleChange}
                           required
-                          className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                          className="w-full px-4 py-3 bg-white border border-slate-200 rounded-lg text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all"
                           placeholder="ridan@gmail.com"
                         />
                       </div>
                     </div>
 
-                    {/* <div className="grid md:grid-cols-2 gap-6">
-                      <div>
-                        <label className="block text-gray-700 font-medium mb-2">Company Name</label>
-                        <input
-                          type="text"
-                          name="company"
-                          value={formData.company}
-                          onChange={handleChange}
-                          className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
-                          placeholder="Your Company"
-                        />
-                      </div>
-                      <div>
-                        <label className="block text-gray-700 font-medium mb-2">Phone Number</label>
-                        <input
-                          type="tel"
-                          name="phone"
-                          value={formData.phone}
-                          onChange={handleChange}
-                          className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
-                          placeholder="+1 (555) 000-0000"
-                        />
-                      </div>
-                    </div>
-
-                    <div className="grid md:grid-cols-2 gap-6">
-                      <div>
-                        <label className="block text-gray-700 font-medium mb-2">Service Needed *</label>
-                        <select
-                          name="service"
-                          value={formData.service}
-                          onChange={handleChange}
-                          required
-                          className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
-                        >
-                          <option value="">Select a service</option>
-                          <option value="web-design">Web Design</option>
-                          <option value="web-development">Web Development</option>
-                          <option value="ecommerce">E-commerce</option>
-                          <option value="mobile-app">Mobile App</option>
-                          <option value="maintenance">Maintenance</option>
-                          <option value="other">Other</option>
-                        </select>
-                      </div>
-                      <div>
-                        <label className="block text-gray-700 font-medium mb-2">Budget Range</label>
-                        <select
-                          name="budget"
-                          value={formData.budget}
-                          onChange={handleChange}
-                          className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
-                        >
-                          <option value="">Select budget</option>
-                          <option value="5k-10k">$5k - $10k</option>
-                          <option value="10k-25k">$10k - $25k</option>
-                          <option value="25k-50k">$25k - $50k</option>
-                          <option value="50k+">$50k+</option>
-                        </select>
-                      </div>
-                    </div> */}
-
                     <div>
-                      <label className="block text-gray-700 font-medium mb-2">Project Details *</label>
+                      <label className="block text-slate-700 font-medium mb-2">Project Details *</label>
                       <textarea
                         name="message"
                         value={formData.message}
                         onChange={handleChange}
                         required
-                        rows={5}
-                        className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all resize-none"
+                        rows={6}
+                        className="w-full px-4 py-3 bg-white border border-slate-200 rounded-lg text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all resize-none"
                         placeholder="Tell us about your project..."
                       ></textarea>
                     </div>
@@ -265,7 +225,7 @@ export default function ContactPage() {
                     <Button
                       type="submit"
                       disabled={isSubmitting}
-                      className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-6 rounded-lg transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                      className="w-full bg-slate-900 hover:bg-slate-800 text-white font-semibold py-6 rounded-lg transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
                     >
                       {isSubmitting ? (
                         <>
@@ -285,7 +245,21 @@ export default function ContactPage() {
             </Card>
           </div>
         </div>
-      </div>
-    </div>
+      </section>
+
+      <section className="pb-16">
+        <div className="container mx-auto px-4">
+          <div className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm">
+            <div className="px-6 py-4 border-b border-slate-100">
+              <h3 className="text-lg font-semibold text-slate-900">Our Office</h3>
+              <p className="text-sm text-slate-500">Dhaka, Bangladesh</p>
+            </div>
+            <div className="h-[360px]">
+              <MyMap></MyMap>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
   );
 }
