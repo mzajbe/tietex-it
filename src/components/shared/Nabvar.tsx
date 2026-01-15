@@ -31,8 +31,8 @@ const Nabvar = () => {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-white/70 backdrop-blur-md shadow-lg border-b border-white/20'
-          : 'bg-white/40 backdrop-blur-sm'
+          ? 'bg-white/80 backdrop-blur-md shadow-lg border-b border-white/20'
+          : 'bg-transparent'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -44,10 +44,12 @@ const Nabvar = () => {
               
             </div>
             <div className="ml-3">
-              <span className="text-xl md:text-2xl font-bold bg-primary bg-clip-text text-transparent">
+              <span className={`text-xl md:text-2xl font-bold ${isScrolled ? "bg-primary bg-clip-text text-transparent" : "text-white"}`}>
                 Tietex IT
               </span>
-              <p className="text-xs text-gray-600 hidden sm:block">Innovation & Technology</p>
+              <p className={`text-xs hidden sm:block ${isScrolled ? "text-gray-600" : "text-white/70"}`}>
+                Innovation & Technology
+              </p>
             </div>
           </div>
 
@@ -57,10 +59,16 @@ const Nabvar = () => {
               <Link
                 key={item.name}
                 href={item.href}
-                className="relative px-4 py-2 text-gray-700 font-medium text-sm lg:text-base rounded-lg transition-all duration-300 hover:text-blue-600 group"
+                className={`relative px-4 py-2 font-medium text-sm lg:text-base rounded-lg transition-all duration-300 group ${
+                  isScrolled
+                    ? "text-gray-700 hover:text-blue-600"
+                    : "text-white/90 hover:text-white"
+                }`}
               >
                 {item.name}
-                <span className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-gradient-to-r from-blue-600 to-cyan-600 transform -translate-x-1/2 transition-all duration-300 group-hover:w-3/4"></span>
+                <span className={`absolute bottom-0 left-1/2 w-0 h-0.5 transform -translate-x-1/2 transition-all duration-300 group-hover:w-3/4 ${
+                  isScrolled ? "bg-gradient-to-r from-blue-600 to-cyan-600" : "bg-white"
+                }`}></span>
               </Link>
             ))}
           </div>
@@ -68,7 +76,9 @@ const Nabvar = () => {
           {/* CTA Button - Desktop */}
           <div className="hidden md:flex items-center space-x-4">
             <Button
-              className="relative bg-primary px-6 py-2 rounded-lg font-medium shadow-lg overflow-hidden group hover:shadow-xl transition-all duration-300"
+              className={`relative px-6 py-2 rounded-lg font-medium shadow-lg overflow-hidden group hover:shadow-xl transition-all duration-300 ${
+                isScrolled ? "bg-primary text-white" : "bg-white text-slate-900"
+              }`}
             >
               <span className="relative z-10">Get Started</span>
             </Button>
