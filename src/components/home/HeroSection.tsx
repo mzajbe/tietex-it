@@ -2,8 +2,52 @@
 
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function HeroSection() {
+  const { language } = useLanguage();
+  const copy = {
+    en: {
+      badge: "Digital Agency",
+      title: "Bring all your ideas to life with our",
+      highlight: "creative magic",
+      description:
+        "We craft premium websites and apps that are fast, modern, and built to convert. Strategy, design, and development - delivered by one expert team.",
+      primaryCta: "Getting Started",
+      secondaryCta: "View Portfolio",
+      stats: [
+        { label: "Projects", value: "120+" },
+        { label: "Clients", value: "48+" },
+        { label: "Years", value: "6+" },
+      ],
+      cardLeftTitle: "Qualified team",
+      cardLeftDesc: "UX + Dev in one sprint",
+      cardRightTitle: "Delivery",
+      cardRightDesc: "14-21 days",
+      heroAlt: "Team planning a strategy",
+    },
+    bn: {
+      badge: "ডিজিটাল এজেন্সি",
+      title: "আমাদের",
+      highlight: "ক্রিয়েটিভ ম্যাজিক",
+      description:
+        "আমরা দ্রুত, আধুনিক এবং কনভার্সন-ফোকাসড প্রিমিয়াম ওয়েবসাইট ও অ্যাপ তৈরি করি। স্ট্র্যাটেজি, ডিজাইন ও ডেভেলপমেন্ট - সবই এক্সপার্ট টিমের হাতে।",
+      primaryCta: "শুরু করুন",
+      secondaryCta: "পোর্টফোলিও দেখুন",
+      stats: [
+        { label: "প্রজেক্ট", value: "১২০+" },
+        { label: "ক্লায়েন্ট", value: "৪৮+" },
+        { label: "বছর", value: "৬+" },
+      ],
+      cardLeftTitle: "দক্ষ টিম",
+      cardLeftDesc: "এক স্প্রিন্টে UX + ডেভ",
+      cardRightTitle: "ডেলিভারি",
+      cardRightDesc: "১৪-২১ দিন",
+      heroAlt: "টিম স্ট্র্যাটেজি প্ল্যান করছে",
+    },
+  };
+
+  const t = language === "bn" ? copy.bn : copy.en;
   return (
     <section className="relative overflow-hidden min-h-[85vh] lg:min-h-screen">
       <div
@@ -34,23 +78,21 @@ export default function HeroSection() {
           {/* Left side - Text content */}
           <div className="space-y-6">
             <div className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-widest text-white/80">
-              Digital Agency
+              {t.badge}
             </div>
 
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight tracking-tight">
-              Bring all your ideas to life with our
-              <span className="block text-primary">creative magic</span>
+              {t.title}
+              <span className="block text-primary">{t.highlight}</span>
             </h1>
 
             <p className="text-lg text-white/80 leading-relaxed max-w-xl">
-              We craft premium websites and apps that are fast, modern, and
-              built to convert. Strategy, design, and development — delivered
-              by one expert team.
+              {t.description}
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">
               <Button size="lg" className="bg-primary text-blackhover:bg-lime-300 px-8">
-                Getting Started
+                {t.primaryCta}
                 <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
               <Button
@@ -58,16 +100,12 @@ export default function HeroSection() {
                 variant="outline"
                 className="border-white/40 text-white hover:bg-white/10 px-8"
               >
-                View Portfolio
+                {t.secondaryCta}
               </Button>
             </div>
 
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 pt-4">
-              {[
-                { label: "Projects", value: "120+" },
-                { label: "Clients", value: "48+" },
-                { label: "Years", value: "6+" },
-              ].map((item) => (
+              {t.stats.map((item) => (
                 <div
                   key={item.label}
                   className="rounded-2xl border border-white/20 bg-white/10 px-4 py-3 backdrop-blur"
@@ -89,22 +127,22 @@ export default function HeroSection() {
               <div className="relative overflow-hidden rounded-2xl">
                 <img
                   src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?w=900&auto=format&fit=crop"
-                  alt="Team planning a strategy"
+                  alt={t.heroAlt}
                   className="h-full w-full object-cover"
                 />
               </div>
               <div className="mt-4 grid grid-cols-2 gap-3">
                 <div className="rounded-2xl border border-white/20 bg-black/40 p-3 text-white">
                   <p className="text-xs uppercase tracking-widest text-white/60">
-                    Qualified team
+                    {t.cardLeftTitle}
                   </p>
-                  <p className="mt-2 text-sm">UX + Dev in one sprint</p>
+                  <p className="mt-2 text-sm">{t.cardLeftDesc}</p>
                 </div>
                 <div className="rounded-2xl border border-white/20 bg-black/40 p-3 text-white">
                   <p className="text-xs uppercase tracking-widest text-white/60">
-                    Delivery
+                    {t.cardRightTitle}
                   </p>
-                  <p className="mt-2 text-sm">14-21 days</p>
+                  <p className="mt-2 text-sm">{t.cardRightDesc}</p>
                 </div>
               </div>
             </div>

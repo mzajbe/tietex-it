@@ -1,54 +1,129 @@
 "use client"
 import React, { useState, useEffect, useRef } from 'react';
 import { Lightbulb, FileSearch, Code, Rocket, CheckCircle2, ArrowRight } from 'lucide-react';
+import { useLanguage } from "@/context/LanguageContext";
 
 const WorkingProcessSection = () => {
   const [activeStep, setActiveStep] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef(null);
+  const { language } = useLanguage();
 
-  const processes = [
-    {
-      icon: Lightbulb,
-      title: "Discovery & Planning",
-      description: "We dive deep into understanding your business goals, target audience, and project requirements to create a strategic roadmap.",
-      color: "from-amber-500 to-orange-500",
-      bgGradient: "from-amber-50 to-orange-50",
-      delay: 0
+  const processes =
+    language === "bn"
+      ? [
+          {
+            icon: Lightbulb,
+            title: "ডিসকভারি ও প্ল্যানিং",
+            description:
+              "আপনার ব্যবসার লক্ষ্য, টার্গেট অডিয়েন্স এবং প্রজেক্ট প্রয়োজন বুঝে স্ট্র্যাটেজিক রোডম্যাপ তৈরি করি।",
+            color: "from-amber-500 to-orange-500",
+            bgGradient: "from-amber-50 to-orange-50",
+            delay: 0
+          },
+          {
+            icon: FileSearch,
+            title: "রিসার্চ ও অ্যানালাইসিস",
+            description:
+              "মার্কেট রিসার্চ ও কম্পিটিটিভ অ্যানালাইসিস করে আপনার সল্যুশনকে আলাদা করে তুলি।",
+            color: "from-blue-500 to-cyan-500",
+            bgGradient: "from-blue-50 to-cyan-50",
+            delay: 200
+          },
+          {
+            icon: Code,
+            title: "ডিজাইন ও ডেভেলপমেন্ট",
+            description:
+              "আধুনিক টেক ও বেস্ট প্র্যাকটিস দিয়ে সুন্দর ও কার্যকর ডিজাইন এবং শক্তিশালী সল্যুশন তৈরি করি।",
+            color: "from-purple-500 to-pink-500",
+            bgGradient: "from-purple-50 to-pink-50",
+            delay: 400
+          },
+          {
+            icon: CheckCircle2,
+            title: "টেস্টিং ও কোয়ালিটি অ্যাসিউরেন্স",
+            description:
+              "রিগোরাস টেস্টিং নিশ্চিত করে আপনার প্রোডাক্ট বাগ-ফ্রি, সিকিউর ও সব ডিভাইসে পারফেক্ট।",
+            color: "from-green-500 to-emerald-500",
+            bgGradient: "from-green-50 to-emerald-50",
+            delay: 600
+          },
+          {
+            icon: Rocket,
+            title: "লঞ্চ ও সাপোর্ট",
+            description:
+              "সল্যুশন ডেপ্লয় করি এবং চলমান সাপোর্ট দিই যেন ফলাফল ধরে রাখা যায়।",
+            color: "from-red-500 to-rose-500",
+            bgGradient: "from-red-50 to-rose-50",
+            delay: 800
+          }
+        ]
+      : [
+          {
+            icon: Lightbulb,
+            title: "Discovery & Planning",
+            description:
+              "We dive deep into understanding your business goals, target audience, and project requirements to create a strategic roadmap.",
+            color: "from-amber-500 to-orange-500",
+            bgGradient: "from-amber-50 to-orange-50",
+            delay: 0
+          },
+          {
+            icon: FileSearch,
+            title: "Research & Analysis",
+            description:
+              "Our team conducts thorough market research and competitive analysis to ensure your solution stands out in the market.",
+            color: "from-blue-500 to-cyan-500",
+            bgGradient: "from-blue-50 to-cyan-50",
+            delay: 200
+          },
+          {
+            icon: Code,
+            title: "Design & Development",
+            description:
+              "We craft beautiful, functional designs and develop robust solutions using cutting-edge technologies and best practices.",
+            color: "from-purple-500 to-pink-500",
+            bgGradient: "from-purple-50 to-pink-50",
+            delay: 400
+          },
+          {
+            icon: CheckCircle2,
+            title: "Testing & Quality Assurance",
+            description:
+              "Rigorous testing ensures your product is bug-free, secure, and performs flawlessly across all devices and platforms.",
+            color: "from-green-500 to-emerald-500",
+            bgGradient: "from-green-50 to-emerald-50",
+            delay: 600
+          },
+          {
+            icon: Rocket,
+            title: "Launch & Support",
+            description:
+              "We deploy your solution and provide ongoing support to ensure continued success and optimal performance.",
+            color: "from-red-500 to-rose-500",
+            bgGradient: "from-red-50 to-rose-50",
+            delay: 800
+          }
+        ];
+
+  const copy = {
+    en: {
+      kicker: "How We Work",
+      title: "Our Working Process",
+      subtitle:
+        "A systematic approach to transform your ideas into exceptional digital solutions",
+      cta: "Start Your Project",
     },
-    {
-      icon: FileSearch,
-      title: "Research & Analysis",
-      description: "Our team conducts thorough market research and competitive analysis to ensure your solution stands out in the market.",
-      color: "from-blue-500 to-cyan-500",
-      bgGradient: "from-blue-50 to-cyan-50",
-      delay: 200
+    bn: {
+      kicker: "আমাদের কাজের ধাপ",
+      title: "আমাদের ওয়ার্কিং প্রসেস",
+      subtitle:
+        "আপনার আইডিয়াকে এক্সসেপশনাল ডিজিটাল সল্যুশনে রূপ দিতে একটি সিস্টেমেটিক পদ্ধতি",
+      cta: "আপনার প্রজেক্ট শুরু করুন",
     },
-    {
-      icon: Code,
-      title: "Design & Development",
-      description: "We craft beautiful, functional designs and develop robust solutions using cutting-edge technologies and best practices.",
-      color: "from-purple-500 to-pink-500",
-      bgGradient: "from-purple-50 to-pink-50",
-      delay: 400
-    },
-    {
-      icon: CheckCircle2,
-      title: "Testing & Quality Assurance",
-      description: "Rigorous testing ensures your product is bug-free, secure, and performs flawlessly across all devices and platforms.",
-      color: "from-green-500 to-emerald-500",
-      bgGradient: "from-green-50 to-emerald-50",
-      delay: 600
-    },
-    {
-      icon: Rocket,
-      title: "Launch & Support",
-      description: "We deploy your solution and provide ongoing support to ensure continued success and optimal performance.",
-      color: "from-red-500 to-rose-500",
-      bgGradient: "from-red-50 to-rose-50",
-      delay: 800
-    }
-  ];
+  };
+
+  const t = language === "bn" ? copy.bn : copy.en;
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -87,14 +162,14 @@ const WorkingProcessSection = () => {
         <div className={`text-center mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <div className="inline-block mb-4">
             <span className="text-blue-600 font-semibold text-sm uppercase tracking-wider bg-blue-100 px-4 py-2 rounded-full">
-              How We Work
+              {t.kicker}
             </span>
           </div>
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-slate-800 via-blue-800 to-slate-800 bg-clip-text text-transparent">
-            Our Working Process
+            {t.title}
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            A systematic approach to transform your ideas into exceptional digital solutions
+            {t.subtitle}
           </p>
         </div>
 
@@ -244,7 +319,7 @@ const WorkingProcessSection = () => {
         >
           <button className="group relative bg-gradient-to-r from-blue-600 to-cyan-600 text-white px-8 py-4 rounded-full font-semibold text-lg shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden">
             <span className="relative z-10 flex items-center gap-2">
-              Start Your Project
+              {t.cta}
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </span>
             <div className="absolute inset-0 bg-gradient-to-r from-cyan-600 to-blue-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />

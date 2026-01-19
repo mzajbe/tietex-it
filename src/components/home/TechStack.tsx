@@ -1,5 +1,7 @@
-import Image from "next/image";
+"use client";
+
 import { Badge } from "@/components/ui/badge";
+import { useLanguage } from "@/context/LanguageContext";
 
 const techStack = [
   { name: "Next.js", logo: "https://cdn.worldvectorlogo.com/logos/next-js.svg" },
@@ -17,19 +19,39 @@ const techStack = [
 ];
 
 export default function TechStack() {
+  const { language } = useLanguage();
+  const copy = {
+    en: {
+      badge: "Our Tech Stack",
+      kicker: "Technologies We Work With",
+      title: "TECHNOLOGIES WE SPECIALIZE IN",
+      footer:
+        "And many more cutting-edge tools to ensure your project is built with the best.",
+    },
+    bn: {
+      badge: "আমাদের টেক স্ট্যাক",
+      kicker: "যেসব টেকনোলজি নিয়ে কাজ করি",
+      title: "যেসব টেকনোলজিতে আমরা বিশেষজ্ঞ",
+      footer:
+        "এছাড়াও আরও আধুনিক টুল ব্যবহার করি যাতে আপনার প্রজেক্ট সেরা মানে তৈরি হয়।",
+    },
+  };
+
+  const t = language === "bn" ? copy.bn : copy.en;
+
   return (
     <section className="py-24  border-t">
       <div className="container mx-auto px-6">
         {/* Header */}
         <div className="text-center mb-16 space-y-3">
           <Badge variant="outline" className="border-primary text-primary px-4 py-1 uppercase tracking-widest text-[10px]">
-            Our Tech Stack
+            {t.badge}
           </Badge>
           <h2 className="text-sm font-semibold text-muted-foreground uppercase tracking-[0.2em]">
-            Technologies We Work With
+            {t.kicker}
           </h2>
           <h3 className="text-3xl md:text-5xl font-bold tracking-tight">
-            TECHNOLOGIES WE SPECIALIZE IN
+            {t.title}
           </h3>
         </div>
 
@@ -56,7 +78,7 @@ export default function TechStack() {
 
         {/* Bottom Note */}
         <p className="text-center mt-12 text-sm text-muted-foreground italic">
-          And many more cutting-edge tools to ensure your project is built with the best.
+          {t.footer}
         </p>
       </div>
     </section>
