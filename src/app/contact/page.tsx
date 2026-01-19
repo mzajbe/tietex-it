@@ -64,7 +64,7 @@ export default function ContactPage() {
   return (
     <main className="bg-slate-50 -mt-24">
       <section className="relative overflow-hidden bg-slate-950 text-white">
-        <div className="absolute inset-0 opacity-40 [background:radial-gradient(circle_at_15%_20%,#38bdf8_0%,transparent_45%),radial-gradient(circle_at_85%_15%,#22c55e_0%,transparent_35%)]" />
+        <div className="absolute inset-0 opacity-40 [background:radial-gradient(circle_at_10%_20%,#F16F31_0%,transparent_30%),radial-gradient(circle_at_90%_10%,#F16F31_0%,transparent_35%)]" />
         <div className="container mx-auto px-4 py-24">
           <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-12 items-center">
             <div className="space-y-6">

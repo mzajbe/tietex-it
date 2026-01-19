@@ -37,7 +37,7 @@ export default function ServicesPage() {
   return (
     <main className='-mt-24'>
       <section className="relative overflow-hidden bg-slate-950 text-white">
-        <div className="absolute inset-0 opacity-40 [background:radial-gradient(circle_at_10%_20%,#38bdf8_0%,transparent_45%),radial-gradient(circle_at_90%_10%,#22c55e_0%,transparent_35%)]" />
+        <div className="absolute inset-0 opacity-40 [background:radial-gradient(circle_at_10%_20%,#F16F31_0%,transparent_30%),radial-gradient(circle_at_90%_10%,#F16F31_0%,transparent_35%)]" />
         <div className="absolute -top-24 right-[-6rem] h-72 w-72 rounded-full bg-cyan-400/20 blur-3xl" />
         <div className="container mx-auto px-4 py-24">
           <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-12 items-center">
@@ -55,7 +55,7 @@ export default function ServicesPage() {
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link href="/contact">
-                  <Button className="bg-gradient-to-r from-cyan-400 to-emerald-400 text-slate-950 hover:opacity-90">
+                  <Button className="bg-primary text-slate-950 hover:opacity-90">
                     Request a Quote
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </Button>

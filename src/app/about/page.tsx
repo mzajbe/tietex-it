@@ -91,7 +91,7 @@ export default function AboutPage() {
     <main className="-mt-24">
       {/* Hero */}
       <section className="relative overflow-hidden bg-slate-950 text-white">
-        <div className="absolute inset-0 opacity-40 [background:radial-gradient(circle_at_20%_20%,#38bdf8_0%,transparent_40%),radial-gradient(circle_at_80%_10%,#22c55e_0%,transparent_35%)]" />
+        <div className="absolute inset-0 opacity-40 [background:radial-gradient(circle_at_10%_20%,#F16F31_0%,transparent_30%),radial-gradient(circle_at_90%_10%,#F16F31_0%,transparent_35%)]" />
         <div className="container mx-auto px-4 py-24">
           <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-12 items-center">
             <div className="space-y-6">
@@ -107,7 +107,7 @@ export default function AboutPage() {
                 that convert.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button className="bg-gradient-to-r from-cyan-400 to-emerald-400 text-slate-950 hover:opacity-90">
+                <Button className="bg-primary text-slate-950 hover:opacity-90">
                   Meet the Team
                 </Button>
                 <Button variant="outline" className="border-white/30 text-white hover:bg-white/10">
