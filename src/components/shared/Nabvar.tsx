@@ -1,15 +1,19 @@
 "use client"
-import React, { useState, useEffect } from 'react';import Link from 'next/link';import { Menu, X, ChevronDown } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import Link from 'next/link';
+import { Menu, X, ChevronDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
   Sheet,
   SheetContent,
   SheetTrigger,
 } from '@/components/ui/sheet';
+import { useLanguage } from "@/context/LanguageContext";
 
 const Nabvar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const { language, toggleLanguage } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -19,13 +23,34 @@ const Nabvar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const navItems = [
-    { name: 'Home', href: '/' },
-    { name: 'Services', href: '/services' },
-    { name: 'Portfolio', href: '/portfolio' },
-    { name: 'About', href: '/about' },
-    { name: 'Contact', href: '/contact' },
-  ];
+  const copy = {
+    en: {
+      brandTagline: "Innovation & Technology",
+      cta: "Get Started",
+      toggle: "BN",
+      navItems: [
+        { name: 'Home', href: '/' },
+        { name: 'Services', href: '/services' },
+        { name: 'Portfolio', href: '/portfolio' },
+        { name: 'About', href: '/about' },
+        { name: 'Contact', href: '/contact' },
+      ],
+    },
+    bn: {
+      brandTagline: "উদ্ভাবন ও প্রযুক্তি",
+      cta: "শুরু করুন",
+      toggle: "EN",
+      navItems: [
+        { name: 'হোম', href: '/' },
+        { name: 'সার্ভিস', href: '/services' },
+        { name: 'পোর্টফোলিও', href: '/portfolio' },
+        { name: 'আমাদের সম্পর্কে', href: '/about' },
+        { name: 'যোগাযোগ', href: '/contact' },
+      ],
+    },
+  };
+
+  const t = language === "bn" ? copy.bn : copy.en;
 
   return (
     <nav
@@ -48,14 +73,14 @@ const Nabvar = () => {
                 Tietex IT
               </span>
               <p className={`text-xs hidden sm:block ${isScrolled ? "text-gray-600" : "text-white/70"}`}>
-                Innovation & Technology
+                {t.brandTagline}
               </p>
             </div>
           </div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-1">
-            {navItems.map((item) => (
+            {t.navItems.map((item) => (
               <Link
                 key={item.name}
                 href={item.href}
@@ -74,13 +99,25 @@ const Nabvar = () => {
           </div>
 
           {/* CTA Button - Desktop */}
-          <div className="hidden md:flex items-center space-x-4">
+          <div className="hidden md:flex items-center space-x-3">
+            <button
+              type="button"
+              onClick={toggleLanguage}
+              className={`px-3 py-2 rounded-full text-xs font-semibold tracking-widest border transition-all ${
+                isScrolled
+                  ? "border-slate-200 text-slate-700 hover:text-blue-600"
+                  : "border-white/40 text-white hover:bg-white/10"
+              }`}
+              aria-label="Toggle language"
+            >
+              {t.toggle}
+            </button>
             <Button
               className={`relative px-6 py-2 rounded-lg font-medium shadow-lg overflow-hidden group hover:shadow-xl transition-all duration-300 ${
                 isScrolled ? "bg-primary text-white" : "bg-white text-slate-900"
               }`}
             >
-              <span className="relative z-10">Get Started</span>
+              <span className="relative z-10">{t.cta}</span>
             </Button>
           </div>
 
@@ -105,14 +142,22 @@ const Nabvar = () => {
                     <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-cyan-500 rounded-lg flex items-center justify-center shadow-lg">
                       <span className="text-white font-bold text-lg">T</span>
                     </div>
-                    <div>
-                      <span className="text-lg font-bold bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
-                        Tietex IT
-                      </span>
-                    </div>
+                  <div>
+                    <span className="text-lg font-bold bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
+                      Tietex IT
+                    </span>
                   </div>
+                  <button
+                    type="button"
+                    onClick={toggleLanguage}
+                    className="ml-auto rounded-full border border-slate-200 px-3 py-1 text-xs font-semibold tracking-widest text-slate-700"
+                    aria-label="Toggle language"
+                  >
+                    {t.toggle}
+                  </button>
+                </div>
                   
-                  {navItems.map((item) => (
+                  {t.navItems.map((item) => (
                     <Link
                       key={item.name}
                       href={item.href}
@@ -128,7 +173,7 @@ const Nabvar = () => {
                     className="w-full  py-6 rounded-lg font-medium shadow-lg hover:shadow-xl transition-all duration-300 mt-4"
                     onClick={() => setIsOpen(false)}
                   >
-                    Get Started
+                    {t.cta}
                   </Button>
                 </div>
               </SheetContent>

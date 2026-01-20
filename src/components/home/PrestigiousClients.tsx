@@ -1,4 +1,7 @@
+"use client";
+
 import React from "react";
+import { useLanguage } from "@/context/LanguageContext";
 
 // Replace these placeholder URLs with your actual client logo paths
 const clients = [
@@ -13,16 +16,34 @@ const clients = [
 ];
 
 export default function PrestigiousClients() {
+  const { language } = useLanguage();
+  const copy = {
+    en: {
+      kicker: "Website Design Company in Bangladesh",
+      title: "Prestigious Clients We Have Worked With",
+      footer:
+        "Trusted by 50+ local and international businesses in various industries.",
+    },
+    bn: {
+      kicker: "বাংলাদেশের ওয়েবসাইট ডিজাইন কোম্পানি",
+      title: "যেসব সম্মানিত ক্লায়েন্টের সাথে আমরা কাজ করেছি",
+      footer:
+        "বিভিন্ন ইন্ডাস্ট্রিতে ৫০+ লোকাল ও আন্তর্জাতিক ব্যবসার আস্থা অর্জন করেছি।",
+    },
+  };
+
+  const t = language === "bn" ? copy.bn : copy.en;
+
   return (
     <section className="py-20 ">
       <div className="container mx-auto px-6">
         {/* Header Section */}
         <div className="text-center mb-16">
           <h2 className="text-sm font-bold tracking-[0.3em] text-primary uppercase mb-4">
-            Website Design Company in Bangladesh
+            {t.kicker}
           </h2>
           <h3 className="text-3xl md:text-4xl font-extrabold tracking-tight">
-            Prestigious Clients We Have Worked With
+            {t.title}
           </h3>
           <div className="mt-4 h-1 w-24 bg-primary mx-auto rounded-full" />
         </div>
@@ -45,7 +66,7 @@ export default function PrestigiousClients() {
 
         {/* Optional Footer Text */}
         <p className="text-center mt-12 text-muted-foreground text-sm font-medium">
-          Trusted by 50+ local and international businesses in various industries.
+          {t.footer}
         </p>
       </div>
     </section>

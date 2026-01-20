@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react";
 import Card3dDemo from "@/components/portfolio/Card3dDemo";
+import { useLanguage } from "@/context/LanguageContext";
 
 type PortfolioProject = {
   title: string;
@@ -16,6 +17,13 @@ type PortfolioContentProps = {
 };
 
 export default function PortfolioContent({ projects }: PortfolioContentProps) {
+  const { language } = useLanguage();
+  const categoryLabels: Record<string, { en: string; bn: string }> = {
+    All: { en: "All", bn: "সব" },
+    "E-Commerce": { en: "E-Commerce", bn: "ই-কমার্স" },
+    "Real Estate": { en: "Real Estate", bn: "রিয়েল এস্টেট" },
+    Beauty: { en: "Beauty", bn: "বিউটি" },
+  };
   const categories = useMemo(() => {
     const unique = Array.from(new Set(projects.map((p) => p.category)));
     return ["All", ...unique];
@@ -45,7 +53,7 @@ export default function PortfolioContent({ projects }: PortfolioContentProps) {
               }`}
               aria-pressed={isActive}
             >
-              {category}
+              {language === "bn" ? categoryLabels[category]?.bn ?? category : categoryLabels[category]?.en ?? category}
             </button>
           );
         })}

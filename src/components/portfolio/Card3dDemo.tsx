@@ -5,6 +5,7 @@ import { useEffect, useRef } from "react";
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { useLanguage } from "@/context/LanguageContext";
 
 interface CardTransform {
   rotateX: number;
@@ -29,6 +30,8 @@ const Card3dDemo = ({
   imageHeightClass = "h-96",     // bigger image height
   imagePositionClass = "object-top", // best for full-page screenshots
 }: Card3dDemoProps) => {
+  const { language } = useLanguage();
+  const cta = language === "bn" ? "লাইভ ডেমো" : "Live Demo";
   const cardRef = useRef<HTMLDivElement>(null);
   const imageRef = useRef<HTMLImageElement>(null);
   const animationFrameRef = useRef<number | undefined>(undefined);
@@ -156,7 +159,7 @@ const Card3dDemo = ({
         {/* Live demo button */}
         <Button asChild className="w-full">
           <Link href={liveUrl} target="_blank" rel="noopener noreferrer">
-            Live Demo
+            {cta}
           </Link>
         </Button>
       </CardContent>

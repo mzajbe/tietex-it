@@ -1,6 +1,7 @@
 "use client"
 import React, { useState, useRef, useEffect } from 'react';
 import { Plus, Minus, MessageCircle, HelpCircle, Sparkles } from 'lucide-react';
+import { useLanguage } from "@/context/LanguageContext";
 
 type FAQItemType = {
   question: string;
@@ -18,49 +19,135 @@ const FAQSection = () => {
   const [openItems, setOpenItems] = useState<number[]>([0]);
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLElement | null>(null);
+  const { language } = useLanguage();
 
-  const faqs: FAQItemType[] = [
-    {
-      question: "What services does Tietex IT provide?",
-      answer: "We offer a comprehensive range of IT services including web development, mobile app development, UI/UX design, cloud solutions, digital marketing, and IT consulting. Our team specializes in creating custom solutions tailored to your business needs.",
-      category: "Services"
+  const copy = {
+    en: {
+      headerTag: "Got Questions?",
+      title: "Frequently Asked Questions",
+      subtitle:
+        "Find answers to common questions about our services, process, and how we can help transform your digital presence",
+      ctaTitle: "Still Have Questions?",
+      ctaBody:
+        "Can't find what you're looking for? Our team is here to help! Reach out and we'll get back to you within 24 hours.",
+      ctaPrimary: "Contact Us",
+      ctaSecondary: "Schedule a Call",
+      faqs: [
+        {
+          question: "What services does Tietex IT provide?",
+          answer:
+            "We offer a comprehensive range of IT services including web development, mobile app development, UI/UX design, cloud solutions, digital marketing, and IT consulting. Our team specializes in creating custom solutions tailored to your business needs.",
+          category: "Services"
+        },
+        {
+          question: "How long does a typical project take?",
+          answer:
+            "Project timelines vary based on complexity and scope. A simple website might take 2-4 weeks, while a complex web application could take 2-4 months. We provide detailed timelines during the discovery phase and keep you updated throughout the development process.",
+          category: "Timeline"
+        },
+        {
+          question: "What is your development process?",
+          answer:
+            "We follow an agile methodology with five key phases: Discovery & Planning, Research & Analysis, Design & Development, Testing & QA, and Launch & Support. This ensures transparency, flexibility, and high-quality deliverables at every stage.",
+          category: "Process"
+        },
+        {
+          question: "Do you provide post-launch support?",
+          answer:
+            "Absolutely! We offer comprehensive post-launch support including bug fixes, updates, security patches, and feature enhancements. We provide different support packages to match your needs, from basic maintenance to dedicated development teams.",
+          category: "Support"
+        },
+        {
+          question: "What technologies do you work with?",
+          answer:
+            "We work with cutting-edge technologies including React, Next.js, Node.js, Python, React Native, Flutter, AWS, Azure, and more. Our team stays updated with the latest tech trends to deliver modern, scalable solutions.",
+          category: "Technology"
+        },
+        {
+          question: "How much does a project cost?",
+          answer:
+            "Project costs depend on scope, complexity, and features required. We offer flexible pricing models including fixed-price projects, hourly rates, and dedicated team arrangements. Contact us for a detailed quote tailored to your specific requirements.",
+          category: "Pricing"
+        },
+        {
+          question: "Can you work with existing systems?",
+          answer:
+            "Yes! We specialize in integrating with existing systems, APIs, and databases. Whether you need to modernize legacy systems or add new features to your current platform, our team has the expertise to ensure seamless integration.",
+          category: "Integration"
+        },
+        {
+          question: "Do you sign NDAs and protect client data?",
+          answer:
+            "Client confidentiality is our top priority. We're happy to sign NDAs before any project discussion. We follow strict security protocols and industry best practices to protect your intellectual property and sensitive data.",
+          category: "Security"
+        }
+      ],
     },
-    {
-      question: "How long does a typical project take?",
-      answer: "Project timelines vary based on complexity and scope. A simple website might take 2-4 weeks, while a complex web application could take 2-4 months. We provide detailed timelines during the discovery phase and keep you updated throughout the development process.",
-      category: "Timeline"
+    bn: {
+      headerTag: "কোন প্রশ্ন আছে?",
+      title: "প্রশ্নোত্তর",
+      subtitle:
+        "আমাদের সার্ভিস, প্রক্রিয়া এবং আপনার ডিজিটাল উপস্থিতি উন্নত করতে আমরা কীভাবে সাহায্য করি—সেসব নিয়ে সাধারণ প্রশ্নের উত্তর দিন।",
+      ctaTitle: "আরও প্রশ্ন আছে?",
+      ctaBody:
+        "যা খুঁজছেন তা কি পাচ্ছেন না? আমাদের টিম পাশে আছে। যোগাযোগ করুন—২৪ ঘণ্টার মধ্যে আমরা উত্তর দেব।",
+      ctaPrimary: "যোগাযোগ করুন",
+      ctaSecondary: "কল শিডিউল করুন",
+      faqs: [
+        {
+          question: "Tietex IT কী কী সার্ভিস দেয়?",
+          answer:
+            "আমরা ওয়েব ডেভেলপমেন্ট, মোবাইল অ্যাপ ডেভেলপমেন্ট, UI/UX ডিজাইন, ক্লাউড সল্যুশন, ডিজিটাল মার্কেটিং এবং আইটি কনসাল্টিংসহ পূর্ণাঙ্গ আইটি সার্ভিস দিই। আপনার ব্যবসার প্রয়োজন অনুযায়ী কাস্টম সল্যুশনে আমরা বিশেষজ্ঞ।",
+          category: "সার্ভিস"
+        },
+        {
+          question: "একটি সাধারণ প্রজেক্টে কত সময় লাগে?",
+          answer:
+            "টাইমলাইন নির্ভর করে প্রজেক্টের জটিলতা ও স্কোপের ওপর। সাধারণ ওয়েবসাইটে ২-৪ সপ্তাহ লাগতে পারে, আর জটিল ওয়েব অ্যাপে ২-৪ মাস। ডিসকভারি ফেজেই আমরা টাইমলাইন জানিয়ে দিই এবং নিয়মিত আপডেট রাখি।",
+          category: "সময়সূচি"
+        },
+        {
+          question: "আপনাদের ডেভেলপমেন্ট প্রক্রিয়া কী?",
+          answer:
+            "আমরা অ্যাজাইল মেথডোলজি অনুসরণ করি—ডিসকভারি ও প্ল্যানিং, রিসার্চ ও অ্যানালাইসিস, ডিজাইন ও ডেভেলপমেন্ট, টেস্টিং ও QA, এবং লঞ্চ ও সাপোর্ট। এতে স্বচ্ছতা, ফ্লেক্সিবিলিটি ও মানসম্মত ডেলিভারি নিশ্চিত হয়।",
+          category: "প্রক্রিয়া"
+        },
+        {
+          question: "লঞ্চের পর সাপোর্ট দেন কি?",
+          answer:
+            "অবশ্যই। আমরা বাগ ফিক্স, আপডেট, সিকিউরিটি প্যাচ, ও ফিচার এনহান্সমেন্টসহ পোস্ট-লঞ্চ সাপোর্ট দিই। প্রয়োজন অনুযায়ী বেসিক মেইনটেন্যান্স থেকে ডেডিকেটেড টিম পর্যন্ত সাপোর্ট প্যাকেজ আছে।",
+          category: "সাপোর্ট"
+        },
+        {
+          question: "আপনারা কোন কোন টেকনোলজি ব্যবহার করেন?",
+          answer:
+            "আমরা React, Next.js, Node.js, Python, React Native, Flutter, AWS, Azure সহ আধুনিক টেকনোলজি নিয়ে কাজ করি। ট্রেন্ডের সাথে আপডেট থেকে স্কেলেবল সল্যুশন তৈরি করি।",
+          category: "টেকনোলজি"
+        },
+        {
+          question: "একটি প্রজেক্টের খরচ কত?",
+          answer:
+            "খরচ নির্ভর করে স্কোপ, জটিলতা ও ফিচারসের ওপর। আমরা ফিক্সড প্রাইস, আওয়ারলি রেট এবং ডেডিকেটেড টিম—এইসব ফ্লেক্সিবল মডেল অফার করি। বিস্তারিত কোটের জন্য আমাদের সাথে যোগাযোগ করুন।",
+          category: "প্রাইসিং"
+        },
+        {
+          question: "বিদ্যমান সিস্টেমের সাথে কাজ করতে পারবেন?",
+          answer:
+            "হ্যাঁ। আমরা বিদ্যমান সিস্টেম, API এবং ডাটাবেস ইন্টিগ্রেশনে পারদর্শী। লিগ্যাসি সিস্টেম আধুনিক করা বা নতুন ফিচার যোগ করা—সবই নির্বিঘ্নভাবে করি।",
+          category: "ইন্টিগ্রেশন"
+        },
+        {
+          question: "আপনারা কি NDA সাইন করেন এবং ডেটা সুরক্ষা দেন?",
+          answer:
+            "ক্লায়েন্টের গোপনীয়তা আমাদের সর্বোচ্চ অগ্রাধিকার। প্রজেক্ট শুরুর আগে NDA সাইন করতে আমরা প্রস্তুত। আমরা কঠোর সিকিউরিটি প্রটোকল ও বেস্ট প্র্যাকটিস মেনে ডেটা ও আইপি রক্ষা করি।",
+          category: "সিকিউরিটি"
+        }
+      ],
     },
-    {
-      question: "What is your development process?",
-      answer: "We follow an agile methodology with five key phases: Discovery & Planning, Research & Analysis, Design & Development, Testing & QA, and Launch & Support. This ensures transparency, flexibility, and high-quality deliverables at every stage.",
-      category: "Process"
-    },
-    {
-      question: "Do you provide post-launch support?",
-      answer: "Absolutely! We offer comprehensive post-launch support including bug fixes, updates, security patches, and feature enhancements. We provide different support packages to match your needs, from basic maintenance to dedicated development teams.",
-      category: "Support"
-    },
-    {
-      question: "What technologies do you work with?",
-      answer: "We work with cutting-edge technologies including React, Next.js, Node.js, Python, React Native, Flutter, AWS, Azure, and more. Our team stays updated with the latest tech trends to deliver modern, scalable solutions.",
-      category: "Technology"
-    },
-    {
-      question: "How much does a project cost?",
-      answer: "Project costs depend on scope, complexity, and features required. We offer flexible pricing models including fixed-price projects, hourly rates, and dedicated team arrangements. Contact us for a detailed quote tailored to your specific requirements.",
-      category: "Pricing"
-    },
-    {
-      question: "Can you work with existing systems?",
-      answer: "Yes! We specialize in integrating with existing systems, APIs, and databases. Whether you need to modernize legacy systems or add new features to your current platform, our team has the expertise to ensure seamless integration.",
-      category: "Integration"
-    },
-    {
-      question: "Do you sign NDAs and protect client data?",
-      answer: "Client confidentiality is our top priority. We're happy to sign NDAs before any project discussion. We follow strict security protocols and industry best practices to protect your intellectual property and sensitive data.",
-      category: "Security"
-    }
-  ];
+  };
+
+  const t = language === "bn" ? copy.bn : copy.en;
+  const faqs: FAQItemType[] = t.faqs;
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -175,15 +262,15 @@ const FAQSection = () => {
           <div className="inline-flex items-center gap-2 mb-4  px-6 py-3 rounded-full shadow-lg">
             <HelpCircle className="w-5 h-5" />
             <span className="font-semibold text-sm uppercase tracking-wider">
-              Got Questions?
+              {t.headerTag}
             </span>
             <Sparkles className="w-5 h-5" />
           </div>
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-slate-800 via-blue-800 to-slate-800 bg-clip-text text-transparent">
-            Frequently Asked Questions
+            {t.title}
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Find answers to common questions about our services, process, and how we can help transform your digital presence
+            {t.subtitle}
           </p>
         </div>
 
@@ -235,19 +322,19 @@ const FAQSection = () => {
           <div className="flex items-center justify-center gap-3 mb-4">
             <MessageCircle className="w-8 h-8 text-white" />
             <h3 className="text-2xl md:text-3xl font-bold text-white">
-              Still Have Questions?
+              {t.ctaTitle}
             </h3>
           </div>
           <p className="text-blue-50 text-lg mb-6 max-w-2xl mx-auto">
-            Can&apos;t find what you&apos;re looking for? Our team is here to help! Reach out and we&apos;ll get back to you within 24 hours.
+            {t.ctaBody}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <button className="group bg-white text-blue-600 px-8 py-4 rounded-full font-semibold text-lg shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 flex items-center gap-2">
               <MessageCircle className="w-5 h-5 group-hover:rotate-12 transition-transform" />
-              Contact Us
+              {t.ctaPrimary}
             </button>
             <button className="border-2 border-white text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-white hover:text-blue-600 transition-all duration-300 hover:scale-105">
-              Schedule a Call
+              {t.ctaSecondary}
             </button>
           </div>
         </div>

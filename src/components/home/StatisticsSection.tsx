@@ -1,33 +1,65 @@
-import { Users, Globe, Briefcase, Award } from "lucide-react";
+"use client";
 
-const stats = [
-  {
-    label: "Happy Clients",
-    value: "150+",
-    description: "Trusted by businesses worldwide for digital growth.",
-    icon: <Users className="h-5 w-5 text-primary" />,
-  },
-  {
-    label: "Projects Completed",
-    value: "320+",
-    description: "Successful e-commerce and CMS deployments.",
-    icon: <Briefcase className="h-5 w-5 text-primary" />,
-  },
-  {
-    label: "Websites Launched",
-    value: "200+",
-    description: "High-performance portfolio and business sites.",
-    icon: <Globe className="h-5 w-5 text-primary" />,
-  },
-  {
-    label: "Retention Rate",
-    value: "98%",
-    description: "Clients who return to us for ongoing marketing.",
-    icon: <Award className="h-5 w-5 text-primary" />,
-  },
-];
+import { Users, Globe, Briefcase, Award } from "lucide-react";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function StatisticsSection() {
+  const { language } = useLanguage();
+  const stats =
+    language === "bn"
+      ? [
+          {
+            label: "সন্তুষ্ট ক্লায়েন্ট",
+            value: "১৫০+",
+            description: "ডিজিটাল গ্রোথের জন্য বিশ্বজুড়ে ব্যবসার আস্থা।",
+            icon: <Users className="h-5 w-5 text-primary" />,
+          },
+          {
+            label: "সম্পন্ন প্রজেক্ট",
+            value: "৩২০+",
+            description: "ই-কমার্স ও CMS ডেপ্লয়মেন্টে সাফল্য।",
+            icon: <Briefcase className="h-5 w-5 text-primary" />,
+          },
+          {
+            label: "লাইভ ওয়েবসাইট",
+            value: "২০০+",
+            description: "দ্রুতগতির পোর্টফোলিও ও বিজনেস সাইট।",
+            icon: <Globe className="h-5 w-5 text-primary" />,
+          },
+          {
+            label: "রিটেনশন রেট",
+            value: "৯৮%",
+            description: "চলমান মার্কেটিংয়ের জন্য আবারও ফিরে আসেন।",
+            icon: <Award className="h-5 w-5 text-primary" />,
+          },
+        ]
+      : [
+          {
+            label: "Happy Clients",
+            value: "150+",
+            description: "Trusted by businesses worldwide for digital growth.",
+            icon: <Users className="h-5 w-5 text-primary" />,
+          },
+          {
+            label: "Projects Completed",
+            value: "320+",
+            description: "Successful e-commerce and CMS deployments.",
+            icon: <Briefcase className="h-5 w-5 text-primary" />,
+          },
+          {
+            label: "Websites Launched",
+            value: "200+",
+            description: "High-performance portfolio and business sites.",
+            icon: <Globe className="h-5 w-5 text-primary" />,
+          },
+          {
+            label: "Retention Rate",
+            value: "98%",
+            description: "Clients who return to us for ongoing marketing.",
+            icon: <Award className="h-5 w-5 text-primary" />,
+          },
+        ];
+
   return (
     <section className="py-20 border-t border-b bg-slate-50/30 dark:bg-transparent">
       <div className="container mx-auto px-4">
