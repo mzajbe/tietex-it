@@ -64,9 +64,9 @@ export default function HeroSection() {
 
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 pt-4">
               {[
-                { label: "Projects", value: "120+" },
-                { label: "Clients", value: "48+" },
-                { label: "Years", value: "6+" },
+                { label: "Projects", value: "50+" },
+                { label: "Clients", value: "30+" },
+                { label: "Years", value: "1+" },
               ].map((item) => (
                 <div
                   key={item.label}
@@ -98,13 +98,13 @@ export default function HeroSection() {
                   <p className="text-xs uppercase tracking-widest text-white/60">
                     Qualified team
                   </p>
-                  <p className="mt-2 text-sm">UX + Dev in one sprint</p>
+                  <p className="mt-2 text-sm">Website + Mobile App + Digital Merketing</p>
                 </div>
                 <div className="rounded-2xl border border-white/20 bg-black/40 p-3 text-white">
                   <p className="text-xs uppercase tracking-widest text-white/60">
                     Delivery
                   </p>
-                  <p className="mt-2 text-sm">14-21 days</p>
+                  <p className="mt-2 text-sm">5 - 7 days</p>
                 </div>
               </div>
             </div>
