@@ -3,6 +3,7 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
+import Image from "next/image";
 
 export default function HeroSection() {
   const { language } = useLanguage();
@@ -125,11 +126,14 @@ export default function HeroSection() {
           <div className="relative">
             <div className="relative mx-auto max-w-md rounded-[28px] border border-white/30 bg-white/10 p-5 shadow-2xl backdrop-blur-md">
               <div className="relative overflow-hidden rounded-2xl">
-                <img
-                  src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?w=900&auto=format&fit=crop"
-                  alt={t.heroAlt}
-                  className="h-full w-full object-cover"
-                />
+                <Image
+    src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?w=900&auto=format&fit=crop"
+    alt={t.heroAlt}
+    fill
+    className="object-cover"
+    priority
+  />
+                
               </div>
               <div className="mt-4 grid grid-cols-2 gap-3">
                 <div className="rounded-2xl border border-white/20 bg-black/40 p-3 text-white">
