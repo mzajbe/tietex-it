@@ -251,8 +251,22 @@ export default function WhyHireUs() {
         <div className="relative flex flex-col justify-between h-full max-w-6xl mx-auto xl:px-0">
           <div className="text-center max-w-3xl mx-auto mb-12">
             <h2 className="mb-2 text-3xl md:text-5xl font-extrabold leading-tight">
-              {t.title} <span className="text-primary">{t.highlight}</span>?
-            </h2>
+  {t.title}{" "}
+  <span
+    className="
+      inline-block
+      text-transparent bg-clip-text
+      bg-[url('https://images.unsplash.com/photo-1499088513455-78ed88b7a5b4?q=80&w=1078&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')]
+      bg-[length:200%_200%] bg-center bg-no-repeat
+      animate-text
+      opacity-90
+    "
+  >
+    {t.highlight}
+  </span>
+  ?
+</h2>
+           
             <p className="text-lg text-muted-foreground">{t.subtitle}</p>
           </div>
 

@@ -2,6 +2,7 @@
 
 import React from "react";
 import { useLanguage } from "@/context/LanguageContext";
+import { Card } from "@/components/ui/card";
 
 // Replace these placeholder URLs with your actual client logo paths
 const clients = [
@@ -33,41 +34,46 @@ export default function PrestigiousClients() {
   };
 
   const t = language === "bn" ? copy.bn : copy.en;
+  const marqueeClients = [...clients, ...clients];
 
   return (
-    <section className="py-20 ">
+    <section className="">
       <div className="container mx-auto px-6">
         {/* Header Section */}
         <div className="text-center mb-16">
-          <h2 className="text-sm font-bold tracking-[0.3em] text-primary uppercase mb-4">
+          {/* <h2 className="text-sm font-bold tracking-[0.3em] text-primary uppercase mb-4">
             {t.kicker}
-          </h2>
+          </h2> */}
           <h3 className="text-3xl md:text-4xl font-extrabold tracking-tight">
             {t.title}
           </h3>
-          <div className="mt-4 h-1 w-24 bg-primary mx-auto rounded-full" />
+          {/* <div className="mt-4 h-1 w-24 bg-primary mx-auto rounded-full" /> */}
         </div>
 
-        {/* Logo Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-8 lg:gap-12 items-center">
-          {clients.map((client, index) => (
-            <div 
-              key={index}
-              className="group flex items-center justify-center p-8 bg-background border border-transparent hover:border-slate-200 dark:hover:border-slate-800 rounded-2xl transition-all duration-300 hover:shadow-sm"
-            >
-              <img
-                src={client.logo}
-                alt={client.name}
-                className="h-12 w-auto object-contain filter grayscale opacity-50 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500 transform group-hover:scale-110"
-              />
+        {/* Marquee */}
+        <div className="relative">
+          <div className="rounded-2xl border bg-background/70 backdrop-blur overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)] [-webkit-mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
+            <div className="flex w-max items-center gap-10 px-8 py-6 animate-marquee motion-reduce:animate-none">
+              {marqueeClients.map((client, index) => (
+                <Card
+                  key={`${client.name}-${index}`}
+                  className="group flex h-16 w-40 items-center justify-center border-muted/60 bg-background/60 p-0 shadow-none"
+                >
+                  <img
+                    src={client.logo}
+                    alt={client.name}
+                    className="h-10 w-auto object-contain filter grayscale opacity-60 transition-all duration-500 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105"
+                  />
+                </Card>
+              ))}
             </div>
-          ))}
+          </div>
         </div>
 
         {/* Optional Footer Text */}
-        <p className="text-center mt-12 text-muted-foreground text-sm font-medium">
+        {/* <p className="text-center mt-12 text-muted-foreground text-sm font-medium">
           {t.footer}
-        </p>
+        </p> */}
       </div>
     </section>
   );
