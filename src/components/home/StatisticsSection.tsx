@@ -10,19 +10,19 @@ export default function StatisticsSection() {
       ? [
           {
             label: "সন্তুষ্ট ক্লায়েন্ট",
-            value: "১৫০+",
+            value: "৩০+",
             description: "ডিজিটাল গ্রোথের জন্য বিশ্বজুড়ে ব্যবসার আস্থা।",
             icon: <Users className="h-5 w-5 text-primary" />,
           },
           {
             label: "সম্পন্ন প্রজেক্ট",
-            value: "৩২০+",
+            value: "৫০+",
             description: "ই-কমার্স ও CMS ডেপ্লয়মেন্টে সাফল্য।",
             icon: <Briefcase className="h-5 w-5 text-primary" />,
           },
           {
             label: "লাইভ ওয়েবসাইট",
-            value: "২০০+",
+            value: "৪০+",
             description: "দ্রুতগতির পোর্টফোলিও ও বিজনেস সাইট।",
             icon: <Globe className="h-5 w-5 text-primary" />,
           },
@@ -36,19 +36,19 @@ export default function StatisticsSection() {
       : [
           {
             label: "Happy Clients",
-            value: "150+",
+            value: "30+",
             description: "Trusted by businesses worldwide for digital growth.",
             icon: <Users className="h-5 w-5 text-primary" />,
           },
           {
             label: "Projects Completed",
-            value: "320+",
+            value: "50+",
             description: "Successful e-commerce and CMS deployments.",
             icon: <Briefcase className="h-5 w-5 text-primary" />,
           },
           {
             label: "Websites Launched",
-            value: "200+",
+            value: "40+",
             description: "High-performance portfolio and business sites.",
             icon: <Globe className="h-5 w-5 text-primary" />,
           },

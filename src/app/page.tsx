@@ -21,9 +21,10 @@ export default function Home() {
         <ShortAbout></ShortAbout>
         <StatisticsSection></StatisticsSection>
         <OurServices></OurServices>
-        <CustomWebsiteService></CustomWebsiteService>
-        <WhyHireUs></WhyHireUs>
+        {/* <CustomWebsiteService></CustomWebsiteService> */}
         <WorkingProcessSection></WorkingProcessSection>
+        <WhyHireUs></WhyHireUs>
+        
         <TechStack></TechStack>
         
         <PrestigiousClients></PrestigiousClients>

@@ -14,7 +14,7 @@ const ShortAbout = () => {
         "We are a dedicated software company specializing in building high-performance e-commerce platforms and stunning portfolio websites. Our team bridges the gap between complex technology and user-centric design.",
       body:
         "Whether you need a custom-built CMS to manage your content with ease or a robust web solution tailored to your specific business needs, we provide end-to-end development. Our expertise doesn't stop at code; we integrate digital marketing strategies into every project to ensure your brand doesn't just exist online, but thrives.",
-      keywords: ["E-Commerce", "Portfolio", "CMS", "Digital Marketing", "Custom Web"],
+      keywords: ["E-Commerce", "Portfolio", "CMS", "Digital Marketing", "Web Automation"],
     },
     bn: {
       titleTop: "ডিজিটাল",
@@ -23,7 +23,7 @@ const ShortAbout = () => {
         "আমরা একটি নিবেদিত সফটওয়্যার কোম্পানি, যারা হাই-পারফরম্যান্স ই-কমার্স প্ল্যাটফর্ম এবং দারুণ পোর্টফোলিও ওয়েবসাইট তৈরি করি। আমাদের টিম জটিল প্রযুক্তি ও ব্যবহারকারীমুখী ডিজাইনের মধ্যে সেতু গড়ে।",
       body:
         "আপনার কনটেন্ট সহজে ম্যানেজ করার জন্য কাস্টম CMS হোক বা ব্যবসার জন্য বিশেষভাবে তৈরি ওয়েব সল্যুশন—আমরা এন্ড-টু-এন্ড ডেভেলপমেন্ট দিই। আমাদের দক্ষতা শুধু কোডেই সীমাবদ্ধ নয়; আমরা প্রতিটি প্রজেক্টে ডিজিটাল মার্কেটিং স্ট্র্যাটেজি যুক্ত করি যেন আপনার ব্র্যান্ড অনলাইনে শুধু থাকে না, বরং এগিয়ে যায়।",
-      keywords: ["ই-কমার্স", "পোর্টফোলিও", "CMS", "ডিজিটাল মার্কেটিং", "কাস্টম ওয়েব"],
+      keywords: ["ই-কমার্স", "পোর্টফোলিও", "CMS", "ডিজিটাল মার্কেটিং", "ওয়েব অটোমেশন"],
     },
   };
 

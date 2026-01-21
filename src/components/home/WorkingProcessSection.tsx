@@ -156,7 +156,7 @@ const WorkingProcessSection = () => {
   }, [isVisible, processes.length]);
 
   return (
-    <section ref={sectionRef} className="py-20 px-4 sm:px-6 lg:px-8  overflow-hidden">
+    <section ref={sectionRef} className=" px-4 sm:px-6 lg:px-8  overflow-hidden">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className={`text-center mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
@@ -317,12 +317,12 @@ const WorkingProcessSection = () => {
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}
         >
-          <button className="group relative bg-gradient-to-r from-blue-600 to-cyan-600 text-white px-8 py-4 rounded-full font-semibold text-lg shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden">
+          <button className="group relative bg-primary text-white px-8 py-4 rounded-full font-semibold text-lg shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden">
             <span className="relative z-10 flex items-center gap-2">
               {t.cta}
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </span>
-            <div className="absolute inset-0 bg-gradient-to-r from-cyan-600 to-blue-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
+            <div className="absolute inset-0 bg-orange-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
           </button>
         </div>
       </div>

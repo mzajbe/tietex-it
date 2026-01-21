@@ -39,7 +39,7 @@ const OurServices = () => {
             icon: <UserCircle className="h-6 w-6" />,
           },
           {
-            title: "Custom CMS",
+            title: "CMS",
             description:
               "Take full control of your content. We build easy-to-use dashboards so you can update your website without writing a single line of code.",
             icon: <Settings className="h-6 w-6" />,
@@ -84,7 +84,7 @@ const OurServices = () => {
             icon: <UserCircle className="h-6 w-6" />,
           },
           {
-            title: "কাস্টম CMS",
+            title: "CMS",
             description:
               "আপনার কনটেন্টের পূর্ণ নিয়ন্ত্রণ নিন। সহজ ড্যাশবোর্ড তৈরি করি যাতে এক লাইন কোড না লিখেই ওয়েবসাইট আপডেট করতে পারেন।",
             icon: <Settings className="h-6 w-6" />,
