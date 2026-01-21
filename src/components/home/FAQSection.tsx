@@ -266,7 +266,7 @@ const FAQSection = () => {
             </span>
             <Sparkles className="w-5 h-5" />
           </div>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-slate-800 via-blue-800 to-slate-800 bg-clip-text text-transparent">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-slate-800 via-primary to-slate-800 bg-clip-text text-transparent">
             {t.title}
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
