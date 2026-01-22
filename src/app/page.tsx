@@ -1,3 +1,4 @@
+import Cloude from "@/components/animation/Cloude";
 import CustomWebsiteService from "@/components/home/CustomWebsiteService";
 import FAQSection from "@/components/home/FAQSection";
 import HeroSection from "@/components/home/HeroSection";
@@ -29,6 +30,8 @@ export default function Home() {
         <WhyHireUs></WhyHireUs>
         
         <TechStack></TechStack>
+
+        
         
         <PrestigiousClients></PrestigiousClients>
         <FAQSection></FAQSection>

@@ -92,7 +92,10 @@ export default function HeroSection() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" className="bg-primary text-blackhover:bg-lime-300 px-8">
+              <Button
+                size="lg"
+                className="bg-primary text-blackhover:bg-lime-300 px-8"
+              >
                 {t.primaryCta}
                 <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
@@ -127,13 +130,12 @@ export default function HeroSection() {
             <div className="relative mx-auto max-w-md rounded-[28px] border border-white/30 bg-white/10 p-5 shadow-2xl backdrop-blur-md">
               <div className="relative overflow-hidden rounded-2xl">
                 <Image
-    src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?w=900&auto=format&fit=crop"
-    alt={t.heroAlt}
-    fill
-    className="object-cover"
-    priority
-  />
-                
+                  src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?w=900&auto=format&fit=crop"
+                  alt={t.heroAlt}
+                  fill
+                  className="object-cover"
+                  priority
+                />
               </div>
               <div className="mt-4 grid grid-cols-2 gap-3">
                 <div className="rounded-2xl border border-white/20 bg-black/40 p-3 text-white">
