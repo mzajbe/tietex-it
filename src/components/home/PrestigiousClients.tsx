@@ -39,12 +39,15 @@ export default function PrestigiousClients() {
   return (
     <section className="">
       <div className="container mx-auto px-6">
+        
         {/* Header Section */}
         <div className="text-center mb-16">
           {/* <h2 className="text-sm font-bold tracking-[0.3em] text-primary uppercase mb-4">
             {t.kicker}
           </h2> */}
+          <div className="absolute top-20 left-30 w-72 h-72 bg-orange-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20 "></div>
           <h3 className="text-3xl md:text-4xl font-extrabold tracking-tight">
+            
             {t.title}
           </h3>
           {/* <div className="mt-4 h-1 w-24 bg-primary mx-auto rounded-full" /> */}
@@ -52,6 +55,7 @@ export default function PrestigiousClients() {
 
         {/* Marquee */}
         <div className="relative">
+          
           <div className="rounded-2xl border bg-background/70 backdrop-blur overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)] [-webkit-mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
             <div className="flex w-max items-center gap-10 px-8 py-6 animate-marquee motion-reduce:animate-none">
               {marqueeClients.map((client, index) => (

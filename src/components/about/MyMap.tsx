@@ -14,14 +14,16 @@ export function MyMap() {
         language === "bn"
           ? "১৮৮/২, তাজলেন রোড, মিরপুর ০১, ঢাকা ১২১৬"
           : "188/2, Tajlen Road, Mirpur 01, Dhaka 1216",
-      lng: 90.440813,
-      lat: 23.7983437,
+      lng: 90.36100685606931,
+      lat: 23.785587459401523,
     },
   ];
 
+  const defaultCenter: [number, number] = [locations[0].lng, locations[0].lat];
+
   return (
     <Card className="h-[300px] p-0 mt-24 overflow-hidden">
-      <Map center={[-73.98, 40.76]} zoom={12}>
+      <Map center={defaultCenter} zoom={14}>
         {locations.map((location) => (
           <MapMarker
             key={location.id}

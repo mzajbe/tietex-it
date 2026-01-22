@@ -195,7 +195,7 @@ const FAQSection = () => {
         <div
           className={`group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border-2 ${
             isOpen 
-              ? 'border-blue-500 shadow-blue-100' 
+              ? 'border-orange-500 shadow-orange-100' 
               : 'border-gray-100 hover:border-blue-200'
           }`}
         >
@@ -207,14 +207,14 @@ const FAQSection = () => {
               <div className="flex items-center gap-3 mb-2">
                 <span className={`text-xs font-semibold px-3 py-1 rounded-full transition-all duration-300 ${
                   isOpen 
-                    ? 'bg-gradient-to-r from-blue-600 to-cyan-600 text-white' 
-                    : 'bg-gray-100 text-gray-600 group-hover:bg-blue-50 group-hover:text-blue-600'
+                    ? 'bg-gradient-to-r from-orange-600 to-orange-400 text-white' 
+                    : 'bg-gray-100 text-gray-600 group-hover:bg-orange-50 group-hover:text-orange-600'
                 }`}>
                   {faq.category}
                 </span>
               </div>
               <h3 className={`text-lg font-bold transition-colors duration-300 ${
-                isOpen ? 'text-blue-600' : 'text-gray-800 group-hover:text-blue-600'
+                isOpen ? 'text-orange-600' : 'text-gray-800 group-hover:text-orange-600'
               }`}>
                 {faq.question}
               </h3>
@@ -222,8 +222,8 @@ const FAQSection = () => {
             <div
               className={`flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 ${
                 isOpen
-                  ? 'bg-gradient-to-br from-blue-600 to-cyan-600 text-white shadow-lg rotate-180'
-                  : 'bg-gray-100 text-gray-600 group-hover:bg-blue-50 group-hover:text-blue-600'
+                  ? 'bg-gradient-to-br from-orange-600 to-orange-400 text-white shadow-lg rotate-180'
+                  : 'bg-gray-100 text-gray-600 group-hover:bg-blue-50 group-hover:text-orange-600'
               }`}
             >
               {isOpen ? <Minus className="w-5 h-5" /> : <Plus className="w-5 h-5" />}
@@ -251,10 +251,10 @@ const FAQSection = () => {
   };
 
   return (
-    <section ref={sectionRef} className="py-20 px-4 sm:px-6 lg:px-8  relative overflow-hidden">
+    <section ref={sectionRef} className="py-20 px-4 sm:px-6 lg:px-8   relative overflow-hidden">
       {/* Background Decorations */}
-      <div className="absolute top-20 left-10 w-72 h-72 bg-blue-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse"></div>
-      <div className="absolute bottom-20 right-10 w-72 h-72 bg-cyan-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse" style={{ animationDelay: '2s' }}></div>
+      <div className="absolute top-20 left-30 w-72 h-72 bg-orange-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20 "></div>
+      <div className="absolute bottom-20 right-10 w-72 h-72 bg-orange-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse" style={{ animationDelay: '2s' }}></div>
       
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Section Header */}
@@ -266,7 +266,7 @@ const FAQSection = () => {
             </span>
             <Sparkles className="w-5 h-5" />
           </div>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-slate-800 via-primary to-slate-800 bg-clip-text text-transparent">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-black bg-clip-text text-transparent">
             {t.title}
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
@@ -315,7 +315,7 @@ const FAQSection = () => {
 
         {/* Bottom CTA */}
         <div
-          className={`text-center bg-gradient-to-r from-blue-600 to-cyan-600 rounded-3xl p-8 md:p-12 shadow-2xl transition-all duration-1000 delay-500 ${
+          className={`text-center bg-gradient-to-r from-orange-600 to-orange-400 rounded-3xl p-8 md:p-12 shadow-2xl transition-all duration-1000 delay-500 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}
         >
@@ -329,11 +329,11 @@ const FAQSection = () => {
             {t.ctaBody}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <button className="group bg-white text-blue-600 px-8 py-4 rounded-full font-semibold text-lg shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 flex items-center gap-2">
+            <button className="group bg-white text-orange-500 px-8 py-4 rounded-full font-semibold text-lg shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 flex items-center gap-2">
               <MessageCircle className="w-5 h-5 group-hover:rotate-12 transition-transform" />
               {t.ctaPrimary}
             </button>
-            <button className="border-2 border-white text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-white hover:text-blue-600 transition-all duration-300 hover:scale-105">
+            <button className="border-2 border-white text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-white hover:text-orange-500 transition-all duration-300 hover:scale-105">
               {t.ctaSecondary}
             </button>
           </div>

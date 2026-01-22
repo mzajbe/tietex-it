@@ -33,8 +33,8 @@ export default function Footer() {
       ],
       contactTitle: "Contact Us",
       address: "Your Office Address, Dhaka,\nBangladesh",
-      phone: "+880 1XXX XXXXXX",
-      email: "info@tietexit.com",
+      phone: "+880 1636024975",
+      email: "tietexit@gmail.com",
       newsletterTitle: "Stay Updated",
       newsletterDesc: "Subscribe to get the latest tech news and offers.",
       emailPlaceholder: "Email Address",
@@ -57,8 +57,8 @@ export default function Footer() {
       ],
       contactTitle: "যোগাযোগ",
       address: "আপনার অফিসের ঠিকানা, ঢাকা,\nবাংলাদেশ",
-      phone: "+880 1XXX XXXXXX",
-      email: "info@tietexit.com",
+      phone: "+880 1636024975",
+      email: "tietexit@gmail.com",
       newsletterTitle: "সাথে থাকুন",
       newsletterDesc: "সর্বশেষ টেক খবর ও অফার পেতে সাবস্ক্রাইব করুন।",
       emailPlaceholder: "ইমেইল ঠিকানা",
@@ -86,7 +86,7 @@ export default function Footer() {
               {t.about}
             </p>
             <div className="flex gap-4">
-              <Link href="#" className="p-2 bg-slate-900 rounded-full hover:bg-primary transition-colors">
+              <Link href="https://www.facebook.com/profile.php?id=61585948863390" className="p-2 bg-slate-900 rounded-full hover:bg-primary transition-colors">
                 <Facebook className="w-4 h-4" />
               </Link>
               <Link href="#" className="p-2 bg-slate-900 rounded-full hover:bg-primary transition-colors">

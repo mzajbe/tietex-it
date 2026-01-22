@@ -97,11 +97,15 @@ function ServiceCard({ item }: { item: HighlightItem }) {
           <h3 className="text-lg font-bold text-foreground">{item.title}</h3>
         </div>
 
-        <p className={`mt-4 mb-2 text-xs font-semibold uppercase ${theme.label}`}>
+        <p
+          className={`mt-4 mb-2 text-xs font-semibold uppercase ${theme.label}`}
+        >
           ------------
         </p>
 
-        <p className="text-sm leading-relaxed text-muted-foreground">{item.desc}</p>
+        <p className="text-sm leading-relaxed text-muted-foreground">
+          {item.desc}
+        </p>
       </div>
     </div>
   );
@@ -246,14 +250,14 @@ export default function WhyHireUs() {
   const remaining = t.highlights.slice(5);
 
   return (
-    <section className="py-24">
+    <section className="">
       <div className="container mx-auto px-6">
         <div className="relative flex flex-col justify-between h-full max-w-6xl mx-auto xl:px-0">
           <div className="text-center max-w-3xl mx-auto mb-12">
             <h2 className="mb-2 text-3xl md:text-5xl font-extrabold leading-tight">
-  {t.title}{" "}
-  <span
-    className="
+              {t.title}{" "}
+              <span
+                className="
       inline-block
       text-transparent bg-clip-text
       bg-[url('https://images.unsplash.com/photo-1499088513455-78ed88b7a5b4?q=80&w=1078&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')]
@@ -261,12 +265,12 @@ export default function WhyHireUs() {
       animate-text
       opacity-90
     "
-  >
-    {t.highlight}
-  </span>
-  ?
-</h2>
-           
+              >
+                {t.highlight}
+              </span>
+              ?
+            </h2>
+
             <p className="text-lg text-muted-foreground">{t.subtitle}</p>
           </div>
 
