@@ -128,22 +128,22 @@ const Nabvar = () => {
                 <Button
                   variant="ghost"
                   size="icon"
-                  className="text-gray-700 hover:text-blue-600 hover:bg-blue-50/50"
+                  className="text-gray-700 hover:text-orange-600 hover:bg-blue-50/50"
                 >
                   {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
                 </Button>
               </SheetTrigger>
               <SheetContent
                 side="right"
-                className="w-[280px] bg-white/95 backdrop-blur-xl border-l border-white/20"
+                className="w-[280px] p-3 bg-white/95 backdrop-blur-xl border-l border-white/20"
               >
                 <div className="flex flex-col space-y-6 mt-8">
                   <div className="flex items-center space-x-3 pb-6 border-b border-gray-200">
-                    <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-cyan-500 rounded-lg flex items-center justify-center shadow-lg">
+                    <div className="w-10 h-10 bg-gradient-to-br from-orange-600 to-orange-500 rounded-lg flex items-center justify-center shadow-lg">
                       <span className="text-white font-bold text-lg">T</span>
                     </div>
                   <div>
-                    <span className="text-lg font-bold bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
+                    <span className="text-lg font-bold bg-gradient-to-r from-orange-600 to-orange-500 bg-clip-text text-transparent">
                       Tietex IT
                     </span>
                   </div>
@@ -162,7 +162,7 @@ const Nabvar = () => {
                       key={item.name}
                       href={item.href}
                       onClick={() => setIsOpen(false)}
-                      className="text-gray-700 font-medium text-lg hover:text-blue-600 transition-colors duration-300 flex items-center justify-between group"
+                      className="text-gray-700 font-medium text-lg hover:text-orange-600 transition-colors duration-300 flex items-center justify-between group"
                     >
                       {item.name}
                       <ChevronDown className="h-4 w-4 transform -rotate-90 group-hover:translate-x-1 transition-transform" />

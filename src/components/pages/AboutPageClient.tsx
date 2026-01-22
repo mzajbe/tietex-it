@@ -44,10 +44,10 @@ export default function AboutPageClient() {
       teamBody:
         "A multidisciplinary crew that brings clarity, creativity, and speed to every project.",
       teamMembers: [
-        { name: "Team Member 1", role: "CEO & Founder" },
-        { name: "Team Member 2", role: "Product Designer" },
-        { name: "Team Member 3", role: "Lead Engineer" },
-        { name: "Team Member 4", role: "Growth Strategist" },
+        { name: "Ridan Kabir", role: "CEO & Founder" },
+        { name: "Fahim", role: "Product Designer" },
+        { name: "Nazmul", role: "Lead Engineer" },
+        { name: "Fahad Ahmed", role: "Growth Strategist" },
       ],
       processTitle: "Process to Work With Us",
       processBody: "Clear phases, zero surprises - from discovery to launch.",
@@ -112,10 +112,10 @@ export default function AboutPageClient() {
       teamBody:
         "বহুমুখী টিম যারা প্রতিটি প্রজেক্টে স্পষ্টতা, সৃজনশীলতা ও গতি নিয়ে আসে।",
       teamMembers: [
-        { name: "Team Member 1", role: "সিইও ও ফাউন্ডার" },
-        { name: "Team Member 2", role: "প্রোডাক্ট ডিজাইনার" },
-        { name: "Team Member 3", role: "লিড ইঞ্জিনিয়ার" },
-        { name: "Team Member 4", role: "গ্রোথ স্ট্র্যাটেজিস্ট" },
+        { name: "Ridan Kabir", role: "সিইও ও ফাউন্ডার" },
+        { name: "Fahim", role: "প্রোডাক্ট ডিজাইনার" },
+        { name: "Nazmul", role: "লিড ইঞ্জিনিয়ার" },
+        { name: "Fahim Ahmed", role: "গ্রোথ স্ট্র্যাটেজিস্ট" },
       ],
       processTitle: "আমাদের সাথে কাজের ধাপ",
       processBody: "স্পষ্ট ধাপ, কোনো চমক নয় - ডিসকভারি থেকে লঞ্চ পর্যন্ত।",
@@ -156,25 +156,25 @@ export default function AboutPageClient() {
       name: t.teamMembers[0].name,
       role: t.teamMembers[0].role,
       image:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbQg_ISwwljpWFF9kNu8aifEqQYq5v634HhA&s",
+        "https://images.unsplash.com/photo-1735815582271-7ea29bd9b095?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     },
     {
       name: t.teamMembers[1].name,
       role: t.teamMembers[1].role,
       image:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbQg_ISwwljpWFF9kNu8aifEqQYq5v634HhA&s",
+        "https://images.unsplash.com/photo-1621778062380-13eebfd83548?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     },
     {
       name: t.teamMembers[2].name,
       role: t.teamMembers[2].role,
       image:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbQg_ISwwljpWFF9kNu8aifEqQYq5v634HhA&s",
+        "https://images.unsplash.com/photo-1621777974802-eb9c88210735?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     },
     {
       name: t.teamMembers[3].name,
       role: t.teamMembers[3].role,
       image:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbQg_ISwwljpWFF9kNu8aifEqQYq5v634HhA&s",
+        "https://images.unsplash.com/photo-1730717649068-1f46bbc45399?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     },
   ];
 
@@ -233,15 +233,15 @@ export default function AboutPageClient() {
               <p className="text-lg text-white/75 max-w-xl">
                 {t.heroBody}
               </p>
-              <div className="flex flex-col sm:flex-row gap-4">
+              {/* <div className="flex flex-col sm:flex-row gap-4">
                 <Button className="bg-primary text-slate-950 hover:opacity-90">
                   {t.heroPrimaryCta}
                 </Button>
                 <Button variant="outline" className="border-white/30 text-white hover:bg-white/10">
                   {t.heroSecondaryCta}
                 </Button>
-              </div>
-              <div className="flex flex-wrap gap-3 pt-4 text-sm text-white/70">
+              </div> */}
+              {/* <div className="flex flex-wrap gap-3 pt-4 text-sm text-white/70">
                 {t.achievements.map((item) => (
                   <div
                     key={item}
@@ -250,15 +250,15 @@ export default function AboutPageClient() {
                     {item}
                   </div>
                 ))}
-              </div>
+              </div> */}
             </div>
 
             <div className="relative">
               <Card className="overflow-hidden border-white/10 bg-white/5 shadow-2xl">
-                <CardContent className="p-0">
+                <CardContent className="">
                   <div className="relative aspect-video w-full">
                     <Image
-                      src={teamPhoto}
+                      src="https://images.unsplash.com/photo-1646579886741-12b59840c63f?q=80&w=1631&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                       alt={t.heroImageAlt}
                       fill
                       className="object-cover"
