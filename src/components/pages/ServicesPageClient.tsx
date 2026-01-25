@@ -2,7 +2,14 @@
 
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Code2, Globe, Palette, Shield, Sparkles } from "lucide-react";
+import {
+  ArrowRight,
+  Code2,
+  Globe,
+  Palette,
+  Shield,
+  Sparkles,
+} from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 
 export default function ServicesPageClient() {
@@ -17,19 +24,32 @@ export default function ServicesPageClient() {
       secondaryCta: "View Portfolio",
       focusLabel: "Focus",
       serviceLabel: "Service",
-      focusItems: ["Fast delivery", "Modern stack", "Clear communication", "Conversion focus"],
+      focusItems: [
+        "Fast delivery",
+        "Modern stack",
+        "Clear communication",
+        "Conversion focus",
+      ],
       services: [
         {
           title: "Custom Web Development",
           desc: "Scalable, high-performance websites and web apps built for growth.",
           icon: Code2,
-          bullets: ["Next.js & React builds", "API integrations", "Performance tuning"],
+          bullets: [
+            "Next.js & React builds",
+            "API integrations",
+            "Performance tuning",
+          ],
         },
         {
           title: "E-commerce Solutions",
           desc: "Conversion-first storefronts with smooth checkout and inventory flow.",
           icon: Globe,
-          bullets: ["Storefront UX", "Payment gateways", "Automation & analytics"],
+          bullets: [
+            "Storefront UX",
+            "Payment gateways",
+            "Automation & analytics",
+          ],
         },
         {
           title: "UI/UX Design",
@@ -59,19 +79,32 @@ export default function ServicesPageClient() {
       secondaryCta: "পোর্টফোলিও দেখুন",
       focusLabel: "ফোকাস",
       serviceLabel: "সার্ভিস",
-      focusItems: ["দ্রুত ডেলিভারি", "মডার্ন স্ট্যাক", "স্বচ্ছ কমিউনিকেশন", "কনভার্সন ফোকাস"],
+      focusItems: [
+        "দ্রুত ডেলিভারি",
+        "মডার্ন স্ট্যাক",
+        "স্বচ্ছ কমিউনিকেশন",
+        "কনভার্সন ফোকাস",
+      ],
       services: [
         {
           title: "কাস্টম ওয়েব ডেভেলপমেন্ট",
           desc: "গ্রোথের জন্য স্কেলেবল, হাই-পারফরম্যান্স ওয়েবসাইট ও ওয়েব অ্যাপ।",
           icon: Code2,
-          bullets: ["Next.js ও React বিল্ড", "API ইন্টিগ্রেশন", "পারফরম্যান্স টিউনিং"],
+          bullets: [
+            "Next.js ও React বিল্ড",
+            "API ইন্টিগ্রেশন",
+            "পারফরম্যান্স টিউনিং",
+          ],
         },
         {
           title: "ই-কমার্স সল্যুশন",
           desc: "স্মুথ চেকআউট ও ইনভেন্টরি ফ্লোসহ কনভার্সন-ফার্স্ট স্টোরফ্রন্ট।",
           icon: Globe,
-          bullets: ["স্টোরফ্রন্ট UX", "পেমেন্ট গেটওয়ে", "অটোমেশন ও অ্যানালিটিক্স"],
+          bullets: [
+            "স্টোরফ্রন্ট UX",
+            "পেমেন্ট গেটওয়ে",
+            "অটোমেশন ও অ্যানালিটিক্স",
+          ],
         },
         {
           title: "UI/UX ডিজাইন",
@@ -99,8 +132,8 @@ export default function ServicesPageClient() {
   return (
     <main className="-mt-24">
       <section className="relative overflow-hidden bg-slate-950 text-white">
-        <div className="absolute inset-0 opacity-40 [background:radial-gradient(circle_at_10%_20%,#F16F31_0%,transparent_30%),radial-gradient(circle_at_90%_10%,#F16F31_0%,transparent_35%)]" />
-        <div className="absolute -top-24 right-[-6rem] h-72 w-72 rounded-full bg-cyan-400/20 blur-3xl" />
+        <div className="pointer-events-none absolute inset-0 opacity-40 [background:radial-gradient(circle_at_10%_20%,#F16F31_0%,transparent_30%),radial-gradient(circle_at_90%_10%,#F16F31_0%,transparent_35%)]" />
+        <div className="pointer-events-none absolute -top-24 right-[-6rem] h-72 w-72 rounded-full bg-cyan-400/20 blur-3xl" />
         <div className="container mx-auto px-4 py-24">
           <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-12 items-center">
             <div className="space-y-6">
@@ -111,18 +144,24 @@ export default function ServicesPageClient() {
               <h1 className="text-4xl md:text-6xl font-extrabold leading-tight">
                 {t.title}
               </h1>
-              <p className="text-lg text-white/75 max-w-xl">
-                {t.description}
-              </p>
+              <p className="text-lg text-white/75 max-w-xl">{t.description}</p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Link href="/contact">
-                  <Button className="bg-primary text-slate-950 hover:opacity-90">
+                <Button
+                  asChild
+                  className="bg-primary text-slate-950 hover:opacity-90"
+                >
+                  <Link href="/contact">
                     {t.primaryCta}
                     <ArrowRight className="ml-2 h-5 w-5" />
-                  </Button>
-                </Link>
-                <Button variant="outline" className="border-white/30 text-white hover:bg-white/10">
-                  {t.secondaryCta}
+                  </Link>
+                </Button>
+
+                <Button
+                  asChild
+                  variant="outline"
+                  className="border-white/30 text-white hover:bg-white/10"
+                >
+                  <Link href="/portfolio">{t.secondaryCta}</Link>
                 </Button>
               </div>
             </div>
@@ -133,7 +172,9 @@ export default function ServicesPageClient() {
                   key={item}
                   className="rounded-2xl border border-white/15 bg-white/5 p-5 backdrop-blur"
                 >
-                  <p className="text-sm uppercase tracking-widest text-white/50">{t.focusLabel}</p>
+                  <p className="text-sm uppercase tracking-widest text-white/50">
+                    {t.focusLabel}
+                  </p>
                   <p className="mt-2 text-lg font-semibold">{item}</p>
                 </div>
               ))}
@@ -153,8 +194,12 @@ export default function ServicesPageClient() {
               >
                 <div className="flex items-start justify-between gap-4">
                   <div>
-                    <p className="text-xs uppercase tracking-widest text-slate-400">{t.serviceLabel}</p>
-                    <h3 className="mt-2 text-2xl font-semibold text-slate-900">{s.title}</h3>
+                    <p className="text-xs uppercase tracking-widest text-slate-400">
+                      {t.serviceLabel}
+                    </p>
+                    <h3 className="mt-2 text-2xl font-semibold text-slate-900">
+                      {s.title}
+                    </h3>
                     <p className="mt-3 text-slate-600">{s.desc}</p>
                   </div>
                   <div className="rounded-2xl border border-slate-200 bg-slate-50 p-3 text-slate-900 transition group-hover:bg-slate-900 group-hover:text-white">
@@ -180,22 +225,25 @@ export default function ServicesPageClient() {
           <div className="rounded-[32px] bg-gradient-to-r from-slate-900 to-slate-800 px-8 py-12 text-white">
             <div className="grid gap-8 lg:grid-cols-[1.2fr_0.8fr] items-center">
               <div>
-                <h2 className="text-3xl md:text-4xl font-bold">
-                  {t.ctaTitle}
-                </h2>
-                <p className="mt-4 text-white/70 max-w-xl">
-                  {t.ctaBody}
-                </p>
+                <h2 className="text-3xl md:text-4xl font-bold">{t.ctaTitle}</h2>
+                <p className="mt-4 text-white/70 max-w-xl">{t.ctaBody}</p>
               </div>
               <div className="flex flex-col sm:flex-row gap-4 lg:justify-end">
-                <Link href="/contact">
-                  <Button className="bg-white text-slate-900 hover:bg-white/90">
+                <Button
+                  asChild
+                  className="bg-white text-slate-900 hover:bg-white/90"
+                >
+                  <Link href="/contact">
                     {t.ctaPrimary}
                     <ArrowRight className="ml-2 h-5 w-5" />
-                  </Button>
-                </Link>
-                <Button variant="outline" className="border-white/30 text-white hover:bg-white/10">
-                  {t.ctaSecondary}
+                  </Link>
+                </Button>
+                <Button
+                  asChild
+                  variant="outline"
+                  className="border-white/30 text-white hover:bg-white/10"
+                >
+                  <Link href="/contact">{t.ctaSecondary}</Link>
                 </Button>
               </div>
             </div>
