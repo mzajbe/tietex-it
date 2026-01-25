@@ -5,6 +5,7 @@ import { ArrowRight } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 import Image from "next/image";
 import rightImage from "@/../public/693.png";
+import Link from "next/link";
 
 export default function HeroSection() {
   const { language } = useLanguage();
@@ -15,7 +16,7 @@ export default function HeroSection() {
       highlight: "That Help Businesses Grow",
       description:
         "We craft premium websites and apps that are fast, modern. Strategy, design, and development - delivered by one expert team.",
-      primaryCta: "Getting Started",
+      primaryCta: "Services",
       secondaryCta: "View Portfolio",
       stats: [
         { label: "Projects", value: "50+" },
@@ -34,7 +35,7 @@ export default function HeroSection() {
       highlight: "যা ব্যবসার গ্রোথ বাড়ায়",
       description:
         "আমরা সুপার ফাস্ট, আধুনিক প্রিমিয়াম ওয়েবসাইট ও অ্যাপ তৈরি করি। স্ট্র্যাটেজি, ডিজাইন ও ডেভেলপমেন্ট - সবই এক্সপার্ট টিমের হাতে।",
-      primaryCta: "শুরু করুন",
+      primaryCta: "সার্ভিস",
       secondaryCta: "পোর্টফোলিও দেখুন",
       stats: [
         { label: "প্রজেক্ট", value: "৫০+" },
@@ -94,18 +95,22 @@ export default function HeroSection() {
 
             <div className="flex flex-col sm:flex-row gap-4">
               <Button
+                asChild
                 size="lg"
                 className="bg-primary text-blackhover:bg-lime-300 px-8"
               >
-                {t.primaryCta}
-                <ArrowRight className="ml-2 w-5 h-5" />
+                <Link href="/services">
+                  {t.primaryCta}
+                  <ArrowRight className="ml-2 w-5 h-5" />
+                </Link>
               </Button>
               <Button
+                asChild
                 size="lg"
                 variant="outline"
                 className="border-white/40 text-white hover:bg-white/10 px-8"
               >
-                {t.secondaryCta}
+                <Link href="/portfolio">{t.secondaryCta}</Link>
               </Button>
             </div>
 
