@@ -14,6 +14,7 @@ type ContactFormData = {
   service: string;
   budget: string;
   message: string;
+  website: string;
 };
 
 export default function ContactPage() {
@@ -25,7 +26,8 @@ export default function ContactPage() {
     phone: '',
     service: '',
     budget: '',
-    message: ''
+    message: '',
+    website: '',
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -145,7 +147,8 @@ export default function ContactPage() {
           phone: '',
           service: '',
           budget: '',
-          message: ''
+          message: '',
+          website: '',
         });
       }, 3000);
     } catch (error) {
@@ -269,6 +272,16 @@ export default function ContactPage() {
                   </div>
                 ) : (
                   <form onSubmit={handleSubmit} className="space-y-6">
+                    <input
+                      type="text"
+                      name="website"
+                      value={formData.website}
+                      onChange={handleChange}
+                      autoComplete="off"
+                      tabIndex={-1}
+                      aria-hidden="true"
+                      className="hidden"
+                    />
                     <div className="grid md:grid-cols-2 gap-6">
                       <div>
                         <label className="block text-slate-700 font-medium mb-2">{t.nameLabel}</label>
