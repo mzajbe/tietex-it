@@ -39,6 +39,11 @@ export default function Cloude({
   const [resizeKey, setResizeKey] = useState(0);
 
   useEffect(() => {
+    if (window.THREE) setThreeReady(true);
+    if (window.VANTA?.NET) setVantaReady(true);
+  }, []);
+
+  useEffect(() => {
     if (!fullScreen) return;
 
     const handleResize = () => {

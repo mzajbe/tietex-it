@@ -23,23 +23,15 @@ export default function Home() {
         <StatisticsSection></StatisticsSection>
         <OurServices></OurServices>
         {/* <CustomWebsiteService></CustomWebsiteService> */}
-        
-        
       </div>
-
 
       <div className=" py-20">
         <WorkingProcessSection></WorkingProcessSection>
       </div>
 
-
       <div className="max-w-7xl mx-auto py-20">
         <WhyHireUs></WhyHireUs>
       </div>
-
-
-
-
 
       <div className="bg-orange-200">
         <TechStack></TechStack>
