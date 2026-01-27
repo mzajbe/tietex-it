@@ -76,7 +76,7 @@ export default function HeroSection() {
       />
       <div className="absolute inset-0 bg-black/65" />
 
-      <div className="relative px-4 sm:px-6 lg:px-8 pt-24 md:pt-28 pb-20">
+      <div className="relative px-4 sm:px-6 lg:px-33 pt-24 md:pt-28 pb-20 ">
         <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-12 items-center">
           {/* Left side - Text content */}
           <div className="space-y-6">
@@ -133,16 +133,16 @@ export default function HeroSection() {
 
           {/* Right side - Image + UI blocks */}
           <div className="relative">
-            <div className="relative mx-auto max-w-md rounded-[28px] border border-white/30 bg-white/10 p-5 shadow-2xl backdrop-blur-md">
+            <div className="relative ml-auto max-w-xl rounded-[28px] border border-white/30 bg-white/10 p-5 shadow-2xl backdrop-blur-md">
               <div className="relative overflow-hidden rounded-2xl h-64 w-full">
-  <Image
-    src={rightImage}
-    alt={t.heroAlt}
-    fill
-    className="object-cover"
-    priority
-  />
-</div>
+                <Image
+                  src={rightImage}
+                  alt={t.heroAlt}
+                  fill
+                  className="object-cover"
+                  priority
+                />
+              </div>
 
               <div className="mt-4 grid grid-cols-2 gap-3">
                 <div className="rounded-2xl border border-white/20 bg-black/40 p-3 text-white">
@@ -160,8 +160,8 @@ export default function HeroSection() {
               </div>
             </div>
 
-            <div className="absolute -right-8 -top-8 hidden lg:block h-24 w-24 rounded-full border border-white/30 bg-white/10 backdrop-blur" />
-            <div className="absolute -left-10 bottom-6 hidden lg:block h-16 w-16 rounded-full border border-white/30 bg-white/10 backdrop-blur" />
+            {/* <div className="absolute -right-8 -top-8 hidden lg:block h-24 w-24 rounded-full border border-white/30 bg-white/10 backdrop-blur" /> */}
+            {/* <div className="absolute -left-10 bottom-6 hidden lg:block h-16 w-16 rounded-full border border-white/30 bg-white/10 backdrop-blur" /> */}
           </div>
         </div>
       </div>
