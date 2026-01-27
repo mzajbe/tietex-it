@@ -7,13 +7,15 @@ declare global {
   interface Window {
     THREE?: unknown;
     VANTA?: {
-      CLOUDS?: (options: {
+      NET?: (options: {
         el: HTMLElement;
         mouseControls?: boolean;
         touchControls?: boolean;
         gyroControls?: boolean;
         minHeight?: number;
         minWidth?: number;
+        scale?: number;
+        scaleMobile?: number;
       }) => { destroy?: () => void };
     };
   }
@@ -22,16 +24,30 @@ declare global {
 type CloudBackgroundProps = {
   className?: string;
   children?: ReactNode;
+  fullScreen?: boolean;
 };
 
 export default function Cloude({
   className,
   children,
+  fullScreen = false,
 }: CloudBackgroundProps) {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const vantaRef = useRef<{ destroy?: () => void } | null>(null);
   const [threeReady, setThreeReady] = useState(false);
   const [vantaReady, setVantaReady] = useState(false);
+  const [resizeKey, setResizeKey] = useState(0);
+
+  useEffect(() => {
+    if (!fullScreen) return;
+
+    const handleResize = () => {
+      setResizeKey((value) => value + 1);
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, [fullScreen]);
 
   useEffect(() => {
     if (!threeReady || !vantaReady || !containerRef.current) return;
@@ -41,14 +57,21 @@ export default function Cloude({
       vantaRef.current = null;
     }
 
-    if (window.VANTA?.CLOUDS) {
-      vantaRef.current = window.VANTA.CLOUDS({
+    if (window.VANTA?.NET) {
+      const height =
+        containerRef.current.offsetHeight || window.innerHeight || 200;
+      const width =
+        containerRef.current.offsetWidth || window.innerWidth || 200;
+
+      vantaRef.current = window.VANTA.NET({
         el: containerRef.current,
         mouseControls: true,
         touchControls: true,
         gyroControls: false,
-        minHeight: 200.0,
-        minWidth: 200.0,
+        minHeight: height,
+        minWidth: width,
+        scale: 1.0,
+        scaleMobile: 1.0,
       });
     }
 
@@ -58,23 +81,43 @@ export default function Cloude({
         vantaRef.current = null;
       }
     };
-  }, [threeReady, vantaReady]);
+  }, [threeReady, vantaReady, resizeKey]);
 
-  const wrapperClassName = ["relative", className].filter(Boolean).join(" ");
+  const wrapperClassName = [
+    "relative",
+    fullScreen ? "min-h-screen h-screen w-full" : null,
+    className,
+  ]
+    .filter(Boolean)
+    .join(" ");
+  const fullScreenStyle = fullScreen
+    ? { minHeight: "100vh", height: "100vh", width: "100vw" }
+    : undefined;
 
   return (
-    <div className={wrapperClassName}>
+    <div className={wrapperClassName} style={fullScreenStyle}>
       <Script
         src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"
         strategy="afterInteractive"
         onLoad={() => setThreeReady(true)}
       />
-      <Script
-        src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.clouds.min.js"
-        strategy="afterInteractive"
-        onLoad={() => setVantaReady(true)}
+      {threeReady ? (
+        <Script
+          src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js"
+          strategy="afterInteractive"
+          onLoad={() => setVantaReady(true)}
+        />
+      ) : null}
+      <div
+        ref={containerRef}
+        className={[
+          "absolute inset-0 h-full w-full z-0 pointer-events-none",
+          fullScreen ? "min-h-screen h-screen" : null,
+        ]
+          .filter(Boolean)
+          .join(" ")}
+        style={fullScreenStyle}
       />
-      <div ref={containerRef} className="absolute inset-0" />
       {children}
     </div>
   );
