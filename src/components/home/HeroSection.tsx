@@ -115,7 +115,7 @@ export default function HeroSection() {
             {/* Right side - Image + UI blocks */}
             <div className="relative">
               <div className="relative ml-auto max-w-xl rounded-[28px] border border-white/30 bg-white/10 p-5 shadow-2xl backdrop-blur-md">
-                <div className="relative overflow-hidden rounded-2xl h-64 w-full">
+                <div className="relative overflow-hidden rounded-2xl h-96 w-full">
                   <Image
                     src={rightImage}
                     alt={t.heroAlt}
