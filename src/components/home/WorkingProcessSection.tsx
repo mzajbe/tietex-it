@@ -6,7 +6,7 @@ import { useLanguage } from "@/context/LanguageContext";
 const WorkingProcessSection = () => {
   const [activeStep, setActiveStep] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
-  const sectionRef = useRef(null);
+  const sectionRef = useRef<HTMLDivElement | null>(null);
   const { language } = useLanguage();
 
   const processes =
@@ -156,19 +156,30 @@ const WorkingProcessSection = () => {
   }, [isVisible, processes.length]);
 
   return (
-    <section ref={sectionRef} className=" px-4 sm:px-6 lg:px-8  overflow-hidden">
-      <div className="max-w-7xl mx-auto">
+    <section ref={sectionRef} className="relative isolate overflow-hidden">
+      <div
+        className="relative"
+        style={{
+          backgroundImage:
+            "linear-gradient(180deg, rgba(15,23,42,0.7), rgba(15,23,42,0.7)), url('https://substackcdn.com/image/fetch/$s_!cT5n!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F7feb4465-91ad-407f-9fb1-f9aea072aa21_1906x1065.png')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundAttachment: "fixed",
+        }}
+      >
+        <div className="relative px-4 sm:px-6 lg:px-8 min-h-[70vh]">
+          <div className="relative z-10 max-w-7xl mx-auto">
         {/* Section Header */}
         <div className={`text-center mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <div className="inline-block mb-4">
-            <span className="text-black font-semibold text-sm uppercase tracking-wider bg-blue-100 px-4 py-2 rounded-full">
+            {/* <span className="text-black font-semibold text-sm uppercase tracking-wider bg-blue-100 px-4 py-2 rounded-full">
               {t.kicker}
-            </span>
+            </span> */}
           </div>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-black to-slate-800 bg-clip-text text-transparent">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-white  bg-clip-text text-transparent">
             {t.title}
           </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <p className="text-lg text-white max-w-2xl mx-auto">
             {t.subtitle}
           </p>
         </div>
@@ -324,6 +335,8 @@ const WorkingProcessSection = () => {
             </span>
             <div className="absolute inset-0 bg-orange-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
           </button>
+        </div>
+          </div>
         </div>
       </div>
     </section>

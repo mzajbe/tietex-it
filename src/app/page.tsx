@@ -31,7 +31,7 @@ export default function Home() {
       </div>
 
 
-      <div className=" bg-orange-200 py-20">
+      <div className=" py-20">
         <WorkingProcessSection></WorkingProcessSection>
       </div>
 
