@@ -324,12 +324,12 @@ const WorkingProcessSection = () => {
 
         {/* CTA Section */}
         <div
-          className={`mt-16 text-center transition-all duration-1000 delay-1000 ${
-            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          className={`mt-16 text-center transition-all duration-1000 delay-1000  pb-6 ${
+            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10 '
           }`}
         >
-          <button className="group relative bg-primary text-white px-8 py-4 rounded-full font-semibold text-lg shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden">
-            <span className="relative z-10 flex items-center gap-2">
+          <button className="group relative bg-primary text-white px-8 py-4 rounded-full font-semibold text-lg shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden ">
+            <span className="relative z-10 flex items-center gap-2 ">
               {t.cta}
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </span>
