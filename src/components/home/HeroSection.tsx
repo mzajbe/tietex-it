@@ -57,10 +57,10 @@ export default function HeroSection() {
       <Cloude className="min-h-screen w-full" fullScreen>
         <div className="absolute inset-0 bg-black/5 z-10 pointer-events-none" />
 
-        <div className="relative z-20 px-4 sm:px-6 lg:px-33 pt-24 md:pt-28 pb-20">
+        <div className="relative z-20 px-4 sm:px-6 lg:px-33 pt-24 md:pt-28 pb-28">
           <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-12 items-center">
             {/* Left side - Text content */}
-            <div className="space-y-6">
+            <div className="space-y-6 pb-6">
               <div className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-widest text-white/80">
                 {t.badge}
               </div>
@@ -95,7 +95,7 @@ export default function HeroSection() {
                 </Button>
               </div>
 
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 pt-4">
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 pt-4 pb-6 -mt-6">
                 {t.stats.map((item) => (
                   <div
                     key={item.label}

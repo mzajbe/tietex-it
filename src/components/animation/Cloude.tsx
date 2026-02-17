@@ -90,13 +90,13 @@ export default function Cloude({
 
   const wrapperClassName = [
     "relative",
-    fullScreen ? "min-h-screen h-screen w-full" : null,
+    fullScreen ? "min-h-screen h-screen w-full overflow-hidden" : null,
     className,
   ]
     .filter(Boolean)
     .join(" ");
   const fullScreenStyle = fullScreen
-    ? { minHeight: "100vh", height: "100vh", width: "100vw" }
+    ? { minHeight: "100vh", height: "100vh", width: "100%" }
     : undefined;
 
   return (
