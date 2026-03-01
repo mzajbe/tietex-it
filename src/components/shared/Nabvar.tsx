@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
@@ -10,6 +11,12 @@ const Nabvar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const { language, toggleLanguage } = useLanguage();
+  const pathname = usePathname();
+
+  const isActive = (href: string) => {
+    if (href === "/") return pathname === "/";
+    return pathname.startsWith(href);
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -82,14 +89,22 @@ const Nabvar = () => {
                 key={item.name}
                 href={item.href}
                 className={`relative px-4 py-2 font-medium text-sm lg:text-base rounded-lg transition-all duration-300 group ${
-                  isScrolled
-                    ? "text-gray-700 hover:text-blue-600"
-                    : "text-white/90 hover:text-white"
+                  isActive(item.href)
+                    ? isScrolled
+                      ? "text-blue-600"
+                      : "text-white"
+                    : isScrolled
+                      ? "text-gray-700 hover:text-blue-600"
+                      : "text-white/90 hover:text-white"
                 }`}
               >
                 {item.name}
                 <span
-                  className={`absolute bottom-0 left-1/2 w-0 h-0.5 transform -translate-x-1/2 transition-all duration-300 group-hover:w-3/4 ${
+                  className={`absolute bottom-0 left-1/2 h-0.5 transform -translate-x-1/2 transition-all duration-300 ${
+                    isActive(item.href)
+                      ? "w-3/4"
+                      : "w-0 group-hover:w-3/4"
+                  } ${
                     isScrolled
                       ? "bg-gradient-to-r from-blue-600 to-cyan-600"
                       : "bg-white"
@@ -171,7 +186,11 @@ const Nabvar = () => {
                       key={item.name}
                       href={item.href}
                       onClick={() => setIsOpen(false)}
-                      className="text-gray-700 font-medium text-lg hover:text-orange-600 transition-colors duration-300 flex items-center justify-between group"
+                      className={`font-medium text-lg transition-colors duration-300 flex items-center justify-between group ${
+                        isActive(item.href)
+                          ? "text-blue-600"
+                          : "text-gray-700 hover:text-orange-600"
+                      }`}
                     >
                       {item.name}
                       <ChevronDown className="h-4 w-4 transform -rotate-90 group-hover:translate-x-1 transition-transform" />

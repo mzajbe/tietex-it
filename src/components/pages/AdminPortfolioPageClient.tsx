@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import HeroImageSection from "@/components/portfolio/HeroImageSection";
 import type { PortfolioCategory, PortfolioProject } from "@/types/portfolio";
-import heroImage from "@/./../../../public/nasa-Q1p7bh3SHj8-unsplash.jpg";
+import heroImage from "@/./../public/nasa-Q1p7bh3SHj8-unsplash.jpg";
 
 type AdminResponse = {
   items?: PortfolioProject[];
