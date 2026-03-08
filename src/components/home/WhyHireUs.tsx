@@ -13,10 +13,12 @@ import {
 } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 
+import { ReactNode } from "react";
+
 type HighlightItem = {
   title: string;
   desc: string;
-  icon: JSX.Element;
+  icon: ReactNode;
   // We will interpret your existing "color" string like:
   // "bg-blue-500/10 text-blue-600"
   // and convert it into:
